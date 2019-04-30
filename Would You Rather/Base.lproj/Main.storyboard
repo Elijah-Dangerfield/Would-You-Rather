@@ -17,61 +17,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgT-C2-Xun">
-                                <rect key="frame" x="186" y="438" width="46" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgT-C2-Xun">
+                                <rect key="frame" x="183" y="429" width="48" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRQ-s9-gTE" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
-                                <rect key="frame" x="75" y="199" width="268" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRQ-s9-gTE" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
+                                <rect key="frame" x="69.5" y="214" width="275" height="175"/>
                                 <color key="backgroundColor" red="0.058119602501392365" green="0.065690092742443085" blue="0.24980315566062927" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="047-Ga-Drb"/>
+                                    <constraint firstAttribute="height" constant="175" id="2CH-bk-eLQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="jOh-LY-ZZx" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
-                                <rect key="frame" x="75" y="515" width="268" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="jOh-LY-ZZx" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
+                                <rect key="frame" x="69.5" y="507" width="275" height="175"/>
                                 <color key="backgroundColor" red="0.058119602501392365" green="0.065690092742443085" blue="0.24980315566062927" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="dem-4a-rhp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-L7-Z9z" customClass="ActionButton" customModule="Would_You_Rather" customModuleProvider="target">
-                                <rect key="frame" x="109" y="774" width="196" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-L7-Z9z" customClass="ActionButton" customModule="Would_You_Rather" customModuleProvider="target">
+                                <rect key="frame" x="82" y="722" width="250" height="75"/>
                                 <color key="backgroundColor" red="0.1931036299997019" green="0.2105208246636294" blue="0.43768592443563004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="XVY-Zk-l2j"/>
+                                    <constraint firstAttribute="width" constant="250" id="sHk-XT-9pH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ow-CN-oKh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Would you rather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="O65-LX-Lpu">
-                                <rect key="frame" x="87" y="89" width="222" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you rather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="O65-LX-Lpu">
+                                <rect key="frame" x="77" y="89" width="260" height="85"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4P-Ja-khy">
-                                <rect key="frame" x="170" y="635" width="74" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wo-dG-ocl">
+                                <rect key="frame" x="166" y="321" width="82" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rFu-V4-H1D"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wo-dG-ocl">
-                                <rect key="frame" x="166" y="321" width="82" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4P-Ja-khy">
+                                <rect key="frame" x="166" y="630" width="82" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="pwO-jx-N9o"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.058558280160051809" green="0.06540749488136148" blue="0.24964308375634514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jOh-LY-ZZx" firstAttribute="height" secondItem="eRQ-s9-gTE" secondAttribute="height" id="45I-7b-cIc"/>
+                            <constraint firstItem="6Wo-dG-ocl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="321" id="6ZH-oJ-oR5"/>
+                            <constraint firstItem="vgT-C2-Xun" firstAttribute="top" secondItem="eRQ-s9-gTE" secondAttribute="bottom" constant="40" id="6lN-XQ-bfk"/>
+                            <constraint firstItem="vgT-C2-Xun" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CEU-8H-rCH"/>
+                            <constraint firstItem="6Wo-dG-ocl" firstAttribute="centerX" secondItem="eRQ-s9-gTE" secondAttribute="centerX" id="IVc-K7-A1H"/>
+                            <constraint firstItem="nz8-L7-Z9z" firstAttribute="top" secondItem="M4P-Ja-khy" secondAttribute="bottom" constant="49" id="LqB-Xg-osq"/>
+                            <constraint firstItem="M4P-Ja-khy" firstAttribute="leading" secondItem="6Wo-dG-ocl" secondAttribute="leading" id="OEY-6t-iEk"/>
+                            <constraint firstItem="eRQ-s9-gTE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Om6-MV-cWZ"/>
+                            <constraint firstItem="jOh-LY-ZZx" firstAttribute="top" secondItem="vgT-C2-Xun" secondAttribute="bottom" constant="40" id="Phk-JP-u0S"/>
+                            <constraint firstItem="nz8-L7-Z9z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QtG-O1-Dxf"/>
+                            <constraint firstItem="jOh-LY-ZZx" firstAttribute="leading" secondItem="eRQ-s9-gTE" secondAttribute="leading" id="Qxh-xl-bhO"/>
+                            <constraint firstItem="O65-LX-Lpu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="XQ0-0O-M0j"/>
+                            <constraint firstItem="nz8-L7-Z9z" firstAttribute="top" secondItem="jOh-LY-ZZx" secondAttribute="bottom" constant="40" id="ZSA-xk-9J7"/>
+                            <constraint firstItem="M4P-Ja-khy" firstAttribute="centerX" secondItem="jOh-LY-ZZx" secondAttribute="centerX" id="cmV-LG-MtO"/>
+                            <constraint firstItem="eRQ-s9-gTE" firstAttribute="top" secondItem="O65-LX-Lpu" secondAttribute="bottom" constant="40" id="e8L-Hd-ywR"/>
+                            <constraint firstItem="6Wo-dG-ocl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="166" id="feu-8O-BTB"/>
+                            <constraint firstItem="vgT-C2-Xun" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gxQ-We-BaY"/>
+                            <constraint firstItem="O65-LX-Lpu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kba-KA-jEM"/>
+                            <constraint firstItem="vgT-C2-Xun" firstAttribute="top" secondItem="6Wo-dG-ocl" secondAttribute="bottom" constant="64" id="mkG-UP-1TJ"/>
+                            <constraint firstItem="jOh-LY-ZZx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rvP-Mt-zTu"/>
+                            <constraint firstItem="jOh-LY-ZZx" firstAttribute="width" secondItem="eRQ-s9-gTE" secondAttribute="width" id="sw0-A7-pvZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
