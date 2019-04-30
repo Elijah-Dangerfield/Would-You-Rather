@@ -12,6 +12,8 @@ import Firebase
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var secondPercentage: UILabel!
+    @IBOutlet weak var firstPercentage: UILabel!
     @IBOutlet weak var firstOption: UIButton!
     @IBOutlet weak var secondOption: UIButton!
     var total : Int?
@@ -20,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //generateDocs()
+        generateDocs()
         getInfo()
         firstOption.addTarget(self, action: #selector(vote(sender:)), for: .touchUpInside)
         secondOption.addTarget(self, action: #selector(vote(sender:)), for: .touchUpInside)
@@ -29,6 +31,11 @@ class ViewController: UIViewController {
     
     @IBAction func next(_ sender: UIButton) {
         
+        firstOption.layer.borderWidth = 0
+        secondOption.layer.borderWidth = 0
+        firstPercentage.text = ""
+        secondPercentage.text = ""
+
         if(seenQuestions.count >= total!){
         
             firstOption.isUserInteractionEnabled = false
@@ -38,6 +45,8 @@ class ViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
             alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (action: UIAlertAction!) in
                 self.seenQuestions = []
+                let nextQuestion = self.randomUnseen()
+                self.loadQuestion(String(nextQuestion))
             }))
             self.present(alert, animated: true, completion: nil)
             
@@ -56,15 +65,35 @@ class ViewController: UIViewController {
         // Atomically incrememnt the population of the city by 50.
         // Note that increment() with no arguments increments by 1.
         if (sender == firstOption){
+            firstOption.layer.borderWidth = 1
+            firstOption.layer.borderColor = #colorLiteral(red: 0.4411836407, green: 1, blue: 0.8514406318, alpha: 1)
             answerRef.updateData([
             "1": FieldValue.increment(1.0)
             ])
         }else{
+        secondOption.layer.borderWidth = 1
+        secondOption.layer.borderColor = #colorLiteral(red: 0.4411836407, green: 1, blue: 0.8514406318, alpha: 1)
         answerRef.updateData([
             "2": FieldValue.increment(1.0)
             ])
         }
-        
+        answerRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                
+                if let pFirst = document.get("1") as! Double? {
+                    if let pSecond = document.get("2") as! Double? {
+                        let proportionFirst = Int((pFirst/(pFirst+pSecond))*100)
+                        print("First proportiong \(proportionFirst)")
+                        self.firstPercentage.text = "\(proportionFirst)%"
+                        self.secondPercentage.text = "\(100 - proportionFirst)%"
+                    }
+                }else{
+                    print("Couldnt do the percentage thing \n\n")
+                }
+            } else {
+                print("Document does not exist")
+            }
+        }
         firstOption.isUserInteractionEnabled = false
         secondOption.isUserInteractionEnabled = false
 
@@ -115,17 +144,13 @@ class ViewController: UIViewController {
     func generateDocs(){
         let db = Firestore.firestore()
 
-        for i in 0...100{
+        for i in 51...100{
             var index = String(i)
-            db.collection("Test").document(index).setData([
-                "1": 0,
-                "2": 0,
-                "questions": ["this 1","this 2"]
-            ]) { err in
+            db.collection("Test").document(index).delete() { err in
                 if let err = err {
-                    print("Error writing document: \(err)")
+                    print("Error deleting document: \(err)")
                 } else {
-                    print("Document successfully written!")
+                    
                 }
             }
         }
@@ -138,6 +163,8 @@ class ViewController: UIViewController {
         print("The random unseen indecy is: \(result)")
         return result
     }
+    
+   
 
 }
 
