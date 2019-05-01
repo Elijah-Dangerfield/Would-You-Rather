@@ -159,13 +159,14 @@ class ViewController: UIViewController {
     func randomUnseen()-> Int{
         //I want to create a range to pull a random into from 0-total making sure not to include numbers that are in the seen array
         let totalRange = (0...self.total!)
-        let unseenRange = totalRange.filter {n in
+        let randomUnseen = totalRange.filter {n in
             //returns number if it is not in the seenquestions array
+            //this alone is o(n) time where n = total indecies
+            //this is o(n) every time, I may be able to just create the array once and every time just remove and and all future calls will be o(1)
             !self.seenQuestions.contains(n)
-            }
-       let result = unseenRange.randomElement()
-        print("The random unseen indecy is: \(String(describing: result))")
-        return result!
+            }.randomElement()
+        print("The random unseen indecy is: \(String(describing: randomUnseen))")
+        return randomUnseen!
     }
     
    
