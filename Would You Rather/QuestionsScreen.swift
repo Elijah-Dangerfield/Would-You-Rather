@@ -157,11 +157,15 @@ class ViewController: UIViewController {
     }
     
     func randomUnseen()-> Int{
-        let result = Int.random(in: (0..<self.total!).filter() {
-            !self.seenQuestions.contains($0)
-            }.indices)
-        print("The random unseen indecy is: \(result)")
-        return result
+        //I want to create a range to pull a random into from 0-total making sure not to include numbers that are in the seen array
+        let totalRange = (0...self.total!)
+        let unseenRange = totalRange.filter {n in
+            //returns number if it is not in the seenquestions array
+            !self.seenQuestions.contains(n)
+            }
+       let result = unseenRange.randomElement()
+        print("The random unseen indecy is: \(String(describing: result))")
+        return result!
     }
     
    
