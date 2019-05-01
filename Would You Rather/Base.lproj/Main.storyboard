@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="height" constant="175" id="2CH-bk-eLQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="44"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -36,7 +36,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="dem-4a-rhp"/>
                                 </constraints>
-                                <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="44"/>
                                 <state key="normal" title=""/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-L7-Z9z" customClass="ActionButton" customModule="Would_You_Rather" customModuleProvider="target">
@@ -59,18 +59,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4P-Ja-khy">
-                                <rect key="frame" x="166" y="630" width="82" height="43"/>
+                                <rect key="frame" x="157" y="638" width="100" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="pwO-jx-N9o"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="aQY-wu-pX1"/>
+                                    <constraint firstAttribute="width" constant="100" id="iOf-Hd-nBd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wo-dG-ocl">
-                                <rect key="frame" x="166" y="321" width="82" height="44"/>
+                                <rect key="frame" x="157" y="345" width="100" height="44"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Jak-Ek-gyU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Qnd-Ze-XLQ"/>
                                     <constraint firstAttribute="height" constant="44" id="rFu-V4-H1D"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="sIN-bd-jNd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,24 +90,22 @@
                         <color key="backgroundColor" red="0.058558280160051809" green="0.06540749488136148" blue="0.24964308375634514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jOh-LY-ZZx" firstAttribute="height" secondItem="eRQ-s9-gTE" secondAttribute="height" id="45I-7b-cIc"/>
-                            <constraint firstItem="6Wo-dG-ocl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="321" id="6ZH-oJ-oR5"/>
                             <constraint firstItem="vgT-C2-Xun" firstAttribute="top" secondItem="eRQ-s9-gTE" secondAttribute="bottom" constant="40" id="6lN-XQ-bfk"/>
                             <constraint firstItem="vgT-C2-Xun" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CEU-8H-rCH"/>
                             <constraint firstItem="6Wo-dG-ocl" firstAttribute="centerX" secondItem="eRQ-s9-gTE" secondAttribute="centerX" id="IVc-K7-A1H"/>
-                            <constraint firstItem="nz8-L7-Z9z" firstAttribute="top" secondItem="M4P-Ja-khy" secondAttribute="bottom" constant="49" id="LqB-Xg-osq"/>
                             <constraint firstItem="M4P-Ja-khy" firstAttribute="leading" secondItem="6Wo-dG-ocl" secondAttribute="leading" id="OEY-6t-iEk"/>
                             <constraint firstItem="eRQ-s9-gTE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Om6-MV-cWZ"/>
                             <constraint firstItem="jOh-LY-ZZx" firstAttribute="top" secondItem="vgT-C2-Xun" secondAttribute="bottom" constant="40" id="Phk-JP-u0S"/>
+                            <constraint firstItem="6Wo-dG-ocl" firstAttribute="bottom" secondItem="eRQ-s9-gTE" secondAttribute="bottom" id="Psn-xY-gq9"/>
                             <constraint firstItem="nz8-L7-Z9z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QtG-O1-Dxf"/>
                             <constraint firstItem="jOh-LY-ZZx" firstAttribute="leading" secondItem="eRQ-s9-gTE" secondAttribute="leading" id="Qxh-xl-bhO"/>
                             <constraint firstItem="O65-LX-Lpu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="XQ0-0O-M0j"/>
                             <constraint firstItem="nz8-L7-Z9z" firstAttribute="top" secondItem="jOh-LY-ZZx" secondAttribute="bottom" constant="40" id="ZSA-xk-9J7"/>
                             <constraint firstItem="M4P-Ja-khy" firstAttribute="centerX" secondItem="jOh-LY-ZZx" secondAttribute="centerX" id="cmV-LG-MtO"/>
+                            <constraint firstItem="M4P-Ja-khy" firstAttribute="bottom" secondItem="jOh-LY-ZZx" secondAttribute="bottom" id="dDo-oK-yeh"/>
                             <constraint firstItem="eRQ-s9-gTE" firstAttribute="top" secondItem="O65-LX-Lpu" secondAttribute="bottom" constant="40" id="e8L-Hd-ywR"/>
-                            <constraint firstItem="6Wo-dG-ocl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="166" id="feu-8O-BTB"/>
                             <constraint firstItem="vgT-C2-Xun" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gxQ-We-BaY"/>
                             <constraint firstItem="O65-LX-Lpu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kba-KA-jEM"/>
-                            <constraint firstItem="vgT-C2-Xun" firstAttribute="top" secondItem="6Wo-dG-ocl" secondAttribute="bottom" constant="64" id="mkG-UP-1TJ"/>
                             <constraint firstItem="jOh-LY-ZZx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rvP-Mt-zTu"/>
                             <constraint firstItem="jOh-LY-ZZx" firstAttribute="width" secondItem="eRQ-s9-gTE" secondAttribute="width" id="sw0-A7-pvZ"/>
                         </constraints>
