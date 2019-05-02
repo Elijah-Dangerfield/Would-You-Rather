@@ -39,16 +39,16 @@ class ViewController: UIViewController {
     
     func animateButtons() {
         firstOption.center.x = view.center.x // Place it in the center x of the view.
-        firstOption.center.x += (view.bounds.width)// Place it on the right of the view with the width = the bounds'width of the view.
+        firstOption.center.x += (view.bounds.width)/2// Place it on the right of the view with the width = the bounds'width of the view.
         animateSlideIn(sender: firstOption)
         
         secondOption.center.x = view.center.x // Place it in the center x of the view.
-        secondOption.center.x += (view.bounds.width) // Place it on the right of the view with the width = the bounds'width of the view.
+        secondOption.center.x += (view.bounds.width)/2 // Place it on the right of the view with the width = the bounds'width of the view.
         animateSlideIn(sender: secondOption)
     }
     
     func animateSlideIn(sender: UIButton){
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: 0.75, delay: 0, options: [.curveEaseOut], animations: {
             sender.center.x -= self.view.bounds.width
             self.view.layoutIfNeeded()
         }, completion: nil)
