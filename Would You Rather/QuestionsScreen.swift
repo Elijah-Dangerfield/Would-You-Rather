@@ -71,11 +71,13 @@ class ViewController: UIViewController {
             firstOption.isUserInteractionEnabled = false
             secondOption.isUserInteractionEnabled = false
             
-            let alert = UIAlertController(title: "Out of questions", message: "More questions coming soon!", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Out of questions in the chosen packs", message: "More questions coming soon!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
             alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (action: UIAlertAction!) in
-                self.unseenQuestions = []
-                self.startGame()
+                self.seenQuestions = []
+                self.downloadPacks {
+                    self.startGame()                }
+                
             }))
             self.present(alert, animated: true, completion: nil)
             
@@ -89,14 +91,11 @@ class ViewController: UIViewController {
         let currentQuestion = String(seenQuestions.last!)
         let answerRef = db.collection("Test").document(currentQuestion)
         
-        // Atomically incrememnt the population of the city by 50.
-        // Note that increment() with no arguments increments by 1.
         if (sender == firstOption){
             firstOption.layer.borderWidth = 1
-            var incremented = answerRef.updateData([
+            answerRef.updateData([
             "1": FieldValue.increment(1.0)
             ])
-            print("Incremented to: \(incremented)")
         }else{
         secondOption.layer.borderWidth = 1
         answerRef.updateData([
