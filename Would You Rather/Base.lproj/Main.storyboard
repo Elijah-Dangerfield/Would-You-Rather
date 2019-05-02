@@ -65,7 +65,7 @@
                                 <state key="normal" title="Question your morals"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2J6-wp-Jaf" customClass="ActionButton" customModule="Would_You_Rather" customModuleProvider="target">
-                                <rect key="frame" x="82" y="634" width="250" height="75"/>
+                                <rect key="frame" x="82" y="678" width="250" height="75"/>
                                 <color key="backgroundColor" red="0.19310363" green="0.2105208247" blue="0.43768592439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="UUz-Wi-j7S"/>
@@ -84,8 +84,8 @@
                             <constraint firstItem="2J6-wp-Jaf" firstAttribute="centerX" secondItem="DBf-VP-Ssb" secondAttribute="centerX" id="5DI-AJ-9Yx"/>
                             <constraint firstItem="DBf-VP-Ssb" firstAttribute="top" secondItem="Rwe-fZ-xnk" secondAttribute="top" constant="289" id="7gZ-Uu-pJB"/>
                             <constraint firstItem="WdO-Ce-RIK" firstAttribute="top" secondItem="oyz-NF-fXf" secondAttribute="top" constant="45" id="Q8h-G3-bEd"/>
-                            <constraint firstItem="oyz-NF-fXf" firstAttribute="bottom" secondItem="2J6-wp-Jaf" secondAttribute="bottom" constant="65" id="VMy-Uq-6p0"/>
                             <constraint firstItem="DBf-VP-Ssb" firstAttribute="leading" secondItem="oyz-NF-fXf" secondAttribute="leading" constant="109" id="YF9-ay-LD6"/>
+                            <constraint firstItem="oyz-NF-fXf" firstAttribute="bottom" secondItem="2J6-wp-Jaf" secondAttribute="bottom" constant="21" id="YLO-Ba-TF1"/>
                             <constraint firstItem="Vmh-la-wKf" firstAttribute="leading" secondItem="WdO-Ce-RIK" secondAttribute="leading" id="bh1-Bv-sf1"/>
                             <constraint firstItem="2J6-wp-Jaf" firstAttribute="centerX" secondItem="WdO-Ce-RIK" secondAttribute="centerX" id="eGS-T2-obf"/>
                             <constraint firstItem="DBf-VP-Ssb" firstAttribute="top" secondItem="Vmh-la-wKf" secondAttribute="bottom" constant="53" id="jdX-dv-Nfp"/>

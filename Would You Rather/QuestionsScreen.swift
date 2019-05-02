@@ -37,8 +37,7 @@ class ViewController: UIViewController {
 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    func animateButtons() {
         firstOption.center.x = view.center.x // Place it in the center x of the view.
         firstOption.center.x += (view.bounds.width)// Place it on the right of the view with the width = the bounds'width of the view.
         animateSlideIn(sender: firstOption)
@@ -49,7 +48,7 @@ class ViewController: UIViewController {
     }
     
     func animateSlideIn(sender: UIButton){
-        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
             sender.center.x -= self.view.bounds.width
             self.view.layoutIfNeeded()
         }, completion: nil)
@@ -152,6 +151,7 @@ class ViewController: UIViewController {
             if let document = document, document.exists {
                 
                 if let questions = document.get("questions") as! [String]? {
+                    self.animateButtons()
                     self.firstOption.setTitle(questions[0], for: .normal)
                     self.secondOption.setTitle(questions[1], for: .normal)
                     self.firstOption.isUserInteractionEnabled = true
