@@ -37,6 +37,24 @@ class ViewController: UIViewController {
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        firstOption.center.x = view.center.x // Place it in the center x of the view.
+        firstOption.center.x += (view.bounds.width)// Place it on the right of the view with the width = the bounds'width of the view.
+        animateSlideIn(sender: firstOption)
+        
+        secondOption.center.x = view.center.x // Place it in the center x of the view.
+        secondOption.center.x += (view.bounds.width) // Place it on the right of the view with the width = the bounds'width of the view.
+        animateSlideIn(sender: secondOption)
+    }
+    
+    func animateSlideIn(sender: UIButton){
+        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseOut], animations: {
+            sender.center.x -= self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     func downloadPacks(completion: @escaping () -> Void) {
         let db = Firestore.firestore()
         let collection = db.collection("Packs")

@@ -75,7 +75,7 @@
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e21-tr-qad"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="segueStartGame" id="xiV-f1-6bD"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="segueStartGame" animates="NO" id="xiV-f1-6bD"/>
                                 </connections>
                             </button>
                         </subviews>
