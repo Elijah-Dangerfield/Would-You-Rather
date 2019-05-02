@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import Firebase
+import AVFoundation
 class ViewController: UIViewController {
     
     
@@ -16,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstPercentage: UILabel!
     @IBOutlet weak var firstOption: UIButton!
     @IBOutlet weak var secondOption: UIButton!
+    var audioPlayer = AVAudioPlayer()
     var total : Int?
     var seenQuestions = [Int]()
     var unseenQuestions = [Int]()
@@ -23,9 +25,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         //okay so now we need to use the chosen packs to build the unseen questions array
         downloadPacks() {
            //stuff to do once complete now that the unseen array is filled
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
     }
     
     func animateSlideIn(sender: UIButton){
-        UIView.animate(withDuration: 0.75, delay: 0, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
             sender.center.x -= self.view.bounds.width
             self.view.layoutIfNeeded()
         }, completion: nil)
@@ -104,10 +105,20 @@ class ViewController: UIViewController {
     }
     
     @objc func vote(sender: UIButton){
+        let sound = URL(fileURLWithPath: Bundle.main.path(forResource: "btn_click_soft", ofType: "mp3")!)
         let db = Firestore.firestore()
         let currentQuestion = String(seenQuestions.last!)
         let answerRef = db.collection("Test").document(currentQuestion)
         
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: sound)
+            audioPlayer.play()
+            print("Did play audio sound")
+
+        } catch {
+            // couldn't load file :(
+            print("Couldnt play audio sound")
+        }
         if (sender == firstOption){
             firstOption.layer.borderWidth = 1
             answerRef.updateData([
