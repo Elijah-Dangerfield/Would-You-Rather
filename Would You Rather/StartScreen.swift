@@ -15,14 +15,12 @@ class startScreen: UIViewController {
 
     @IBOutlet weak var startButton: ActionButton!
     @IBOutlet weak var option1: DisplayButton!
-    var selectedRanges = [Range<Int>]()
+    var chosenPacks = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-        
-        
         option1.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
 
         
@@ -32,18 +30,37 @@ class startScreen: UIViewController {
     func addOptions(sender: DisplayButton){
         
         if(!sender.isChecked){
-            sender.layer.borderWidth = 1
-            sender.isChecked = true
+            if let selectedPack = sender.currentTitle?.lowercased(){
+                chosenPacks.append(selectedPack)
+                print("New Chosen Packs array \(chosenPacks)")
+                sender.layer.borderWidth = 1
+                sender.isChecked = true
+            }
         }else{
-            sender.layer.borderWidth = 0
-            sender.isChecked = false
-        }
+            if let selectedPack = sender.currentTitle?.lowercased(){
+                if let index = chosenPacks.firstIndex(of: selectedPack) {
+                    chosenPacks.remove(at: index)
+                    sender.layer.borderWidth = 0
+                    sender.isChecked = false
+                    print("New Chosen Packs array \(chosenPacks)")
+
+                    }
+                }
+            }
     }
+    
     
     //so what im thinking is that when a user clicks start I fecth from firebase the ranges corresponding to a given choice
     //an array is build with indecies corresponding to all of the choices and that array is used in practice
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        if chosenPacks.isEmpty{
+            let alert = UIAlertController(title: "No packs Selected", message: "Please chose a pack", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+                return
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
         //based on which ui buttons are checked create the unseenQuestions array.
         //you should be able to pull in stop and start index, create arrays out of those and combine them and assign them over
         
@@ -52,10 +69,12 @@ class startScreen: UIViewController {
             let secondViewController = segue.destination as! ViewController
                 
                 // set a variable in the second view controller with the data to pass
-            
-                secondViewController.unseenQuestions = Array (0...50)
+                secondViewController.chosenPacks = self.chosenPacks
             }
         }
+    
+    
+
         
     }
 
