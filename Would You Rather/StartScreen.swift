@@ -13,8 +13,11 @@ import Firebase
 
 class startScreen: UIViewController {
 
-    @IBOutlet weak var startButton: ActionButton!
     @IBOutlet weak var option1: DisplayButton!
+    @IBOutlet weak var option2: DisplayButton!
+    @IBOutlet weak var option3: DisplayButton!
+    @IBOutlet weak var option4: DisplayButton!
+    @IBOutlet weak var startButton: ActionButton!
     var chosenPacks = [String]()
     
     override func viewDidLoad() {
@@ -22,7 +25,9 @@ class startScreen: UIViewController {
         
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         option1.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
-
+        option2.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
+        option3.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
+        option4.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
         
     }
     

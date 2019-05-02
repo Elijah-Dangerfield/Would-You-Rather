@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         downloadPacks() {
            //stuff to do once complete now that the unseen array is filled
             self.startGame()
+            print(self.unseenQuestions)
         }
         
         firstOption.addTarget(self, action: #selector(vote(sender:)), for: .touchUpInside)
