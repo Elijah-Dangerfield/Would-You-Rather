@@ -133,6 +133,7 @@ class ViewController: UIViewController {
         let db = Firestore.firestore()
         let docRef = db.collection("Test").document("info")
         
+        //maybe instead of reseting the user should just be pushed back to the main screen
         if unseenQuestions.isEmpty{
         //restarting game
         docRef.getDocument { (document, error) in

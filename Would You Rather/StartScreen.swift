@@ -43,9 +43,9 @@ class startScreen: UIViewController {
     //so what im thinking is that when a user clicks start I fecth from firebase the ranges corresponding to a given choice
     //an array is build with indecies corresponding to all of the choices and that array is used in practice
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
+
+        //based on which ui buttons are checked create the unseenQuestions array.
+        //you should be able to pull in stop and start index, create arrays out of those and combine them and assign them over
         
         if segue.identifier == "segueStartGame"  {
            
