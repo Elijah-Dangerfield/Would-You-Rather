@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xmj-LM-PFo">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,16 +9,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="LHr-1z-3yE">
+            <objects>
+                <navigationController id="Xmj-LM-PFo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="aeJ-g1-9Pw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.061142653226852417" green="0.065098084509372711" blue="0.25073933601379395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.061142653226852417" green="0.065098084509372711" blue="0.25073933601379395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textShadowColor" red="0.061142653226852417" green="0.065098084509372711" blue="0.25073933601379395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xWB-08-T6E" kind="relationship" relationship="rootViewController" id="bSS-Nd-o6e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BtB-Xc-v0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1875" y="136"/>
+        </scene>
+        <!--Start Screen-->
         <scene sceneID="xnn-6e-J6E">
             <objects>
-                <viewController id="xWB-08-T6E" sceneMemberID="viewController">
+                <viewController id="xWB-08-T6E" customClass="startScreen" customModule="Would_You_Rather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rwe-fZ-xnk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you rather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="WdO-Ce-RIK">
-                                <rect key="frame" x="77" y="89" width="260" height="85"/>
+                                <rect key="frame" x="77" y="45" width="260" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="8kd-cJ-Qbi"/>
                                     <constraint firstAttribute="height" constant="85" id="OPs-Fl-Syy"/>
@@ -29,36 +51,65 @@
                                 <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick your poison:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmh-la-wKf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your poison:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmh-la-wKf">
                                 <rect key="frame" x="77" y="215" width="131" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBf-VP-Ssb" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
+                                <rect key="frame" x="109" y="289" width="197" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ce9-ss-ntS"/>
+                                </constraints>
+                                <state key="normal" title="Question your morals"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2J6-wp-Jaf" customClass="ActionButton" customModule="Would_You_Rather" customModuleProvider="target">
+                                <rect key="frame" x="82" y="634" width="250" height="75"/>
+                                <color key="backgroundColor" red="0.19310363" green="0.2105208247" blue="0.43768592439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="UUz-Wi-j7S"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="h3q-qc-haY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e21-tr-qad"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="xiV-f1-6bD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.058119602501392365" green="0.065690092742443085" blue="0.24980315566062927" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2J6-wp-Jaf" firstAttribute="centerX" secondItem="DBf-VP-Ssb" secondAttribute="centerX" id="5DI-AJ-9Yx"/>
+                            <constraint firstItem="DBf-VP-Ssb" firstAttribute="top" secondItem="Rwe-fZ-xnk" secondAttribute="top" constant="289" id="7gZ-Uu-pJB"/>
                             <constraint firstItem="WdO-Ce-RIK" firstAttribute="top" secondItem="oyz-NF-fXf" secondAttribute="top" constant="45" id="Q8h-G3-bEd"/>
+                            <constraint firstItem="oyz-NF-fXf" firstAttribute="bottom" secondItem="2J6-wp-Jaf" secondAttribute="bottom" constant="65" id="VMy-Uq-6p0"/>
+                            <constraint firstItem="DBf-VP-Ssb" firstAttribute="leading" secondItem="oyz-NF-fXf" secondAttribute="leading" constant="109" id="YF9-ay-LD6"/>
+                            <constraint firstItem="Vmh-la-wKf" firstAttribute="leading" secondItem="WdO-Ce-RIK" secondAttribute="leading" id="bh1-Bv-sf1"/>
+                            <constraint firstItem="2J6-wp-Jaf" firstAttribute="centerX" secondItem="WdO-Ce-RIK" secondAttribute="centerX" id="eGS-T2-obf"/>
+                            <constraint firstItem="DBf-VP-Ssb" firstAttribute="top" secondItem="Vmh-la-wKf" secondAttribute="bottom" constant="53" id="jdX-dv-Nfp"/>
                             <constraint firstItem="WdO-Ce-RIK" firstAttribute="centerX" secondItem="Rwe-fZ-xnk" secondAttribute="centerX" id="r1w-AL-RyR"/>
+                            <constraint firstItem="2J6-wp-Jaf" firstAttribute="leading" secondItem="oyz-NF-fXf" secondAttribute="leading" constant="82" id="wYE-vG-1ny"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oyz-NF-fXf"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vZ7-et-tQ8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJw-Lo-Cgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-943" y="136"/>
+            <point key="canvasLocation" x="-943.47826086956525" y="135.9375"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Would_You_Rather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRQ-s9-gTE" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
-                                <rect key="frame" x="69.5" y="214" width="275" height="175"/>
+                                <rect key="frame" x="69.5" y="170" width="275" height="175"/>
                                 <color key="backgroundColor" red="0.058119602501392365" green="0.065690092742443085" blue="0.24980315566062927" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="275" id="047-Ga-Drb"/>
@@ -71,7 +122,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="jOh-LY-ZZx" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
-                                <rect key="frame" x="69.5" y="507" width="275" height="175"/>
+                                <rect key="frame" x="69.5" y="463" width="275" height="175"/>
                                 <color key="backgroundColor" red="0.058119602501392365" green="0.065690092742443085" blue="0.24980315566062927" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="dem-4a-rhp"/>
@@ -80,7 +131,7 @@
                                 <state key="normal" title=""/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-L7-Z9z" customClass="ActionButton" customModule="Would_You_Rather" customModuleProvider="target">
-                                <rect key="frame" x="82" y="722" width="250" height="75"/>
+                                <rect key="frame" x="82" y="678" width="250" height="75"/>
                                 <color key="backgroundColor" red="0.1931036299997019" green="0.2105208246636294" blue="0.43768592443563004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="XVY-Zk-l2j"/>
@@ -93,13 +144,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you rather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="O65-LX-Lpu">
-                                <rect key="frame" x="77" y="89" width="260" height="85"/>
+                                <rect key="frame" x="77" y="45" width="260" height="85"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4P-Ja-khy">
-                                <rect key="frame" x="157" y="638" width="100" height="44"/>
+                                <rect key="frame" x="157" y="594" width="100" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="aQY-wu-pX1"/>
                                     <constraint firstAttribute="width" constant="100" id="iOf-Hd-nBd"/>
@@ -109,7 +160,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wo-dG-ocl">
-                                <rect key="frame" x="157" y="345" width="100" height="44"/>
+                                <rect key="frame" x="157" y="301" width="100" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Jak-Ek-gyU"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Qnd-Ze-XLQ"/>
@@ -121,7 +172,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgT-C2-Xun">
-                                <rect key="frame" x="183" y="429" width="48" height="38"/>
+                                <rect key="frame" x="183" y="385" width="48" height="38"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

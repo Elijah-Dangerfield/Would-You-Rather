@@ -21,8 +21,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
-        generateDocs()
+
+        //generateDocs()
         getInfo()
         firstOption.addTarget(self, action: #selector(vote(sender:)), for: .touchUpInside)
         secondOption.addTarget(self, action: #selector(vote(sender:)), for: .touchUpInside)
@@ -66,13 +69,11 @@ class ViewController: UIViewController {
         // Note that increment() with no arguments increments by 1.
         if (sender == firstOption){
             firstOption.layer.borderWidth = 1
-            firstOption.layer.borderColor = #colorLiteral(red: 0.4411836407, green: 1, blue: 0.8514406318, alpha: 1)
             answerRef.updateData([
             "1": FieldValue.increment(1.0)
             ])
         }else{
         secondOption.layer.borderWidth = 1
-        secondOption.layer.borderColor = #colorLiteral(red: 0.4411836407, green: 1, blue: 0.8514406318, alpha: 1)
         answerRef.updateData([
             "2": FieldValue.increment(1.0)
             ])

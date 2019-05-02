@@ -25,6 +25,8 @@ class DisplayButton: UIButton {
     
     private func setupButton() {
         //titleLabel?.font    = UIFont(name: Fonts.avenirNextCondensedDemiBold, size: 22)
+        layer.borderColor = #colorLiteral(red: 0.4411836407, green: 1, blue: 0.8514406318, alpha: 1)
+        layer.borderWidth = 0
         layer.cornerRadius  = 12
         setTitleColor(.white, for: .normal)
     }
