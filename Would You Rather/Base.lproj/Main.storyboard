@@ -75,7 +75,7 @@
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e21-tr-qad"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="xiV-f1-6bD"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="segueStartGame" id="xiV-f1-6bD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -95,6 +95,10 @@
                         <viewLayoutGuide key="safeArea" id="oyz-NF-fXf"/>
                     </view>
                     <navigationItem key="navigationItem" id="vZ7-et-tQ8"/>
+                    <connections>
+                        <outlet property="option1" destination="DBf-VP-Ssb" id="GHR-ds-sZ2"/>
+                        <outlet property="startButton" destination="2J6-wp-Jaf" id="Vwd-UT-Q2p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJw-Lo-Cgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -18,15 +18,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondOption: UIButton!
     var total : Int?
     var seenQuestions = [Int]()
-    
+    var unseenQuestions = [Int]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
-
         //generateDocs()
-        getInfo()
+        startGame()
         firstOption.addTarget(self, action: #selector(vote(sender:)), for: .touchUpInside)
         secondOption.addTarget(self, action: #selector(vote(sender:)), for: .touchUpInside)
 
@@ -47,16 +47,13 @@ class ViewController: UIViewController {
             let alert = UIAlertController(title: "Out of questions", message: "More questions coming soon!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
             alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (action: UIAlertAction!) in
-                self.seenQuestions = []
-                let nextQuestion = self.randomUnseen()
-                self.loadQuestion(String(nextQuestion))
+                self.unseenQuestions = []
+                self.startGame()
             }))
             self.present(alert, animated: true, completion: nil)
             
         }else{
-            
-        let nextQuestion = self.randomUnseen()
-        self.loadQuestion(String(nextQuestion))
+            nextQuestion()
         }
     }
     
@@ -100,7 +97,7 @@ class ViewController: UIViewController {
 
     }
     
-    fileprivate func loadQuestion(_ index: String) {
+    func loadQuestion(_ index: String) {
         // Do any additional setup after loading the view.
 
         let db = Firestore.firestore()
@@ -114,8 +111,6 @@ class ViewController: UIViewController {
                     self.secondOption.setTitle(questions[1], for: .normal)
                     self.firstOption.isUserInteractionEnabled = true
                     self.secondOption.isUserInteractionEnabled = true
-                    self.seenQuestions.append(Int(index)!)
-                    print("new seen questions array: \(self.seenQuestions)")
                 }
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data: \(dataDescription)")
@@ -126,51 +121,40 @@ class ViewController: UIViewController {
        
     }
     
-    func getInfo() {
+    func nextQuestion(){
+        let nextQuestion =  self.unseenQuestions.remove(at: Int.random(in: 0...self.unseenQuestions.count-1))
+        self.seenQuestions.append(nextQuestion)
+        self.loadQuestion(String(nextQuestion))
+        print("new seen questions array: \(self.seenQuestions)")
+    }
+    
+    func startGame() {
+        self.seenQuestions = []
         let db = Firestore.firestore()
         let docRef = db.collection("Test").document("info")
         
+        if unseenQuestions.isEmpty{
+        //restarting game
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 self.total = document.get("total") as! Int? ?? 0
-                print("total in function is: \(self.total)")
-                let firstQuestion = self.randomUnseen()
-                self.loadQuestion(String(firstQuestion))
-            } else {
-            }
-        }
-        
-    }
-
-    func generateDocs(){
-        let db = Firestore.firestore()
-
-        for i in 51...100{
-            var index = String(i)
-            db.collection("Test").document(index).delete() { err in
-                if let err = err {
-                    print("Error deleting document: \(err)")
-                } else {
-                    
+                //here I could just make the array equal to the arrays passed in
+                if let total = self.total{
+                self.unseenQuestions = Array (0...total)
+                self.nextQuestion()
                 }
             }
         }
+        }else{
+            //it was passed in through segue
+            self.nextQuestion()
+            self.total = unseenQuestions.count
+        }
+        
     }
     
-    func randomUnseen()-> Int{
-        //I want to create a range to pull a random into from 0-total making sure not to include numbers that are in the seen array
-        let totalRange = (0...self.total!)
-        let randomUnseen = totalRange.filter {n in
-            //returns number if it is not in the seenquestions array
-            //this alone is o(n) time where n = total indecies
-            //this is o(n) every time, I may be able to just create the array once and every time just remove and and all future calls will be o(1)
-            !self.seenQuestions.contains(n)
-            }.randomElement()
-        print("The random unseen indecy is: \(String(describing: randomUnseen))")
-        return randomUnseen!
-    }
     
-   
-
 }
+    
+
 

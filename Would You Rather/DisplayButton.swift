@@ -11,6 +11,8 @@ import UIKit
 
 class DisplayButton: UIButton {
     
+    var isChecked: Bool = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
