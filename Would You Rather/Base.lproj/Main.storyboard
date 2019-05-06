@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmh-la-wKf">
-                                <rect key="frame" x="77" y="215" width="170.5" height="26"/>
+                                <rect key="frame" x="77" y="215" width="171" height="26"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Pick your poison:">
                                         <attributes>
@@ -79,64 +79,54 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="segueStartGame" animates="NO" id="xiV-f1-6bD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPW-Db-Mmi" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
-                                <rect key="frame" x="109" y="351" width="196" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="7kQ-eh-Je1"/>
-                                </constraints>
-                                <state key="normal" title="Don't chose this one"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lir-XM-N7Q" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
-                                <rect key="frame" x="109" y="439" width="196" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="s6x-Ib-il5"/>
-                                </constraints>
-                                <state key="normal" title="Difficult Questions"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTF-C1-SDY" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
                                 <rect key="frame" x="109" y="268" width="196" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="6mS-wR-nTf"/>
                                 </constraints>
-                                <state key="normal" title="Starter Pack"/>
+                                <state key="normal" title="Easy Decisions"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Io3-uS-Xcf" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
-                                <rect key="frame" x="109" y="527" width="196" height="80"/>
+                                <rect key="frame" x="109" y="532" width="196" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="nYC-Io-gjG"/>
                                 </constraints>
                                 <state key="normal" title="Question your morals"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPW-Db-Mmi" customClass="DisplayButton" customModule="Would_You_Rather" customModuleProvider="target">
+                                <rect key="frame" x="109" y="400" width="196" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="7kQ-eh-Je1"/>
+                                </constraints>
+                                <state key="normal" title="R-Rated"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.058119602501392365" green="0.065690092742443085" blue="0.24980315566062927" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="jTF-C1-SDY" firstAttribute="trailing" secondItem="VPW-Db-Mmi" secondAttribute="trailing" id="6Qv-Ds-36M"/>
+                            <constraint firstItem="Io3-uS-Xcf" firstAttribute="top" secondItem="VPW-Db-Mmi" secondAttribute="bottom" constant="52" id="8kc-51-Aid"/>
                             <constraint firstItem="Vmh-la-wKf" firstAttribute="top" secondItem="WdO-Ce-RIK" secondAttribute="bottom" constant="85" id="A6L-DB-ilU"/>
-                            <constraint firstItem="Lir-XM-N7Q" firstAttribute="trailing" secondItem="Io3-uS-Xcf" secondAttribute="trailing" id="AXw-75-6Nk"/>
-                            <constraint firstItem="Lir-XM-N7Q" firstAttribute="leading" secondItem="Io3-uS-Xcf" secondAttribute="leading" id="AcR-ET-dy7"/>
-                            <constraint firstAttribute="bottom" secondItem="Lir-XM-N7Q" secondAttribute="bottom" constant="289" id="Ee8-yK-Rgd"/>
-                            <constraint firstItem="Lir-XM-N7Q" firstAttribute="leading" secondItem="oyz-NF-fXf" secondAttribute="leading" constant="109" id="IuE-xh-T9t"/>
-                            <constraint firstItem="Lir-XM-N7Q" firstAttribute="trailing" secondItem="jTF-C1-SDY" secondAttribute="trailing" id="J7A-Go-AJD"/>
-                            <constraint firstItem="Lir-XM-N7Q" firstAttribute="top" secondItem="VPW-Db-Mmi" secondAttribute="bottom" constant="8" symbolic="YES" id="MNM-Yo-4YN"/>
-                            <constraint firstItem="Lir-XM-N7Q" firstAttribute="trailing" secondItem="VPW-Db-Mmi" secondAttribute="trailing" id="N2Z-N1-0tt"/>
+                            <constraint firstItem="jTF-C1-SDY" firstAttribute="leading" secondItem="Io3-uS-Xcf" secondAttribute="leading" id="Kmn-e6-jke"/>
+                            <constraint firstItem="jTF-C1-SDY" firstAttribute="leading" secondItem="oyz-NF-fXf" secondAttribute="leading" constant="109" id="NlB-h3-cUp"/>
                             <constraint firstItem="WdO-Ce-RIK" firstAttribute="top" secondItem="oyz-NF-fXf" secondAttribute="top" constant="45" id="Q8h-G3-bEd"/>
+                            <constraint firstItem="jTF-C1-SDY" firstAttribute="leading" secondItem="VPW-Db-Mmi" secondAttribute="leading" id="RmA-IY-bKl"/>
                             <constraint firstItem="oyz-NF-fXf" firstAttribute="bottom" secondItem="2J6-wp-Jaf" secondAttribute="bottom" constant="21" id="YLO-Ba-TF1"/>
-                            <constraint firstItem="Lir-XM-N7Q" firstAttribute="leading" secondItem="jTF-C1-SDY" secondAttribute="leading" id="b9j-4z-9p7"/>
+                            <constraint firstItem="jTF-C1-SDY" firstAttribute="trailing" secondItem="Io3-uS-Xcf" secondAttribute="trailing" id="YNY-YD-z4r"/>
                             <constraint firstItem="Vmh-la-wKf" firstAttribute="leading" secondItem="WdO-Ce-RIK" secondAttribute="leading" id="bh1-Bv-sf1"/>
-                            <constraint firstItem="Io3-uS-Xcf" firstAttribute="top" secondItem="Lir-XM-N7Q" secondAttribute="bottom" constant="8" symbolic="YES" id="e4a-hm-ZAw"/>
                             <constraint firstItem="2J6-wp-Jaf" firstAttribute="centerX" secondItem="WdO-Ce-RIK" secondAttribute="centerX" id="eGS-T2-obf"/>
                             <constraint firstItem="jTF-C1-SDY" firstAttribute="top" secondItem="Vmh-la-wKf" secondAttribute="bottom" constant="27" id="fnQ-Zt-MLv"/>
-                            <constraint firstItem="Lir-XM-N7Q" firstAttribute="leading" secondItem="VPW-Db-Mmi" secondAttribute="leading" id="h8c-FT-bPR"/>
-                            <constraint firstItem="Lir-XM-N7Q" firstAttribute="centerX" secondItem="2J6-wp-Jaf" secondAttribute="centerX" id="prK-L0-CSf"/>
+                            <constraint firstItem="jTF-C1-SDY" firstAttribute="centerX" secondItem="WdO-Ce-RIK" secondAttribute="centerX" id="kzM-hK-lql"/>
                             <constraint firstItem="WdO-Ce-RIK" firstAttribute="centerX" secondItem="Rwe-fZ-xnk" secondAttribute="centerX" id="r1w-AL-RyR"/>
                             <constraint firstItem="2J6-wp-Jaf" firstAttribute="leading" secondItem="oyz-NF-fXf" secondAttribute="leading" constant="82" id="wYE-vG-1ny"/>
+                            <constraint firstItem="VPW-Db-Mmi" firstAttribute="top" secondItem="jTF-C1-SDY" secondAttribute="bottom" constant="52" id="zHK-zC-SRB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oyz-NF-fXf"/>
                     </view>
                     <navigationItem key="navigationItem" id="vZ7-et-tQ8"/>
                     <connections>
-                        <outlet property="option1" destination="jTF-C1-SDY" id="UxK-n9-EEd"/>
-                        <outlet property="option2" destination="VPW-Db-Mmi" id="lKI-Jb-D7S"/>
-                        <outlet property="option3" destination="Lir-XM-N7Q" id="06A-QW-eZW"/>
+                        <outlet property="option1" destination="jTF-C1-SDY" id="xZM-co-eai"/>
+                        <outlet property="option2" destination="VPW-Db-Mmi" id="nmk-Uj-mzc"/>
+                        <outlet property="option3" destination="Io3-uS-Xcf" id="5vs-ej-YXS"/>
                         <outlet property="option4" destination="Io3-uS-Xcf" id="mFR-Nf-ggp"/>
                         <outlet property="startButton" destination="2J6-wp-Jaf" id="Vwd-UT-Q2p"/>
                     </connections>

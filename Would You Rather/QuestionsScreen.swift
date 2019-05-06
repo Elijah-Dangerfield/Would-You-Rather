@@ -25,11 +25,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         //okay so now we need to use the chosen packs to build the unseen questions array
         downloadPacks() {
            //stuff to do once complete now that the unseen array is filled
+          
             self.startGame()
             print("unseen questions:", self.unseenQuestions)
         }
@@ -191,7 +191,8 @@ class ViewController: UIViewController {
         self.nextQuestion()
         self.total = unseenQuestions.count
         }
-        
+    
+   
     
     
     

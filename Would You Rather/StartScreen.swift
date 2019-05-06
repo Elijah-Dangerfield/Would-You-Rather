@@ -13,22 +13,20 @@ import Firebase
 
 class startScreen: UIViewController {
 
-    @IBOutlet weak var option1: DisplayButton!
-    @IBOutlet weak var option2: DisplayButton!
     @IBOutlet weak var option3: DisplayButton!
-    @IBOutlet weak var option4: DisplayButton!
+    @IBOutlet weak var option2: DisplayButton!
+    @IBOutlet weak var option1: DisplayButton!
     @IBOutlet weak var startButton: ActionButton!
     var chosenPacks = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        //generateDocs()
+    self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         option1.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
         option2.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
         option3.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
-        option4.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
-        
     }
     
     @objc
@@ -54,7 +52,6 @@ class startScreen: UIViewController {
             }
     }
     
-    
     //so what im thinking is that when a user clicks start I fecth from firebase the ranges corresponding to a given choice
     //an array is build with indecies corresponding to all of the choices and that array is used in practice
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,8 +75,25 @@ class startScreen: UIViewController {
             }
         }
     
-    
-
+    func generateDocs(){
         
+        let db = Firestore.firestore()
+        let collection = db.collection("Test")
+        
+        for i in 0...400{
+            collection.document(String(i)).setData([
+                "1": "0",
+                "2": "0",
+                "questions":["this1","this2"]
+                
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+        }
+    }
     }
 
