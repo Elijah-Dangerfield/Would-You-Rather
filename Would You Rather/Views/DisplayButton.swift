@@ -24,10 +24,26 @@ class DisplayButton: UIButton {
         setupButton()
     }
     
+    @objc
+    func btnClick(sender: DisplayButton){
+        
+        if(sender.isChecked){
+            sender.layer.borderWidth = 0
+            sender.isChecked = false
+        }else{
+            sender.layer.borderWidth = 1
+            sender.isChecked = true
+        }
+        
+    }
     
     private func setupButton() {
-        //titleLabel?.font    = UIFont(name: Fonts.avenirNextCondensedDemiBold, size: 22)
-        layer.borderColor = #colorLiteral(red: 0.4411836407, green: 1, blue: 0.8514406318, alpha: 1)
+        self.addTarget(self, action: #selector(btnClick(sender:)), for: .touchUpInside)
+
+        layer.borderColor = Colors.accentColor.cgColor
+        layer.backgroundColor = Colors.mainBlue.cgColor
+        self.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
+        self.titleLabel?.tintColor = .white
         layer.borderWidth = 0
         layer.cornerRadius  = 12
         setTitleColor(.white, for: .normal)

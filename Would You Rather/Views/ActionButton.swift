@@ -21,10 +21,17 @@ class ActionButton: UIButton {
         setupButton()
     }
     
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        //have to set this here as the height is not known until this callback
+        layer.cornerRadius = bounds.height / 2.0
+    }
     
     private func setupButton() {
-        //titleLabel?.font    = UIFont(name: Fonts.avenirNextCondensedDemiBold, size: 22)
-        layer.cornerRadius  = frame.size.height/2
-        setTitleColor(.white, for: .normal)
+        self.layer.backgroundColor = Colors.lightBlue.cgColor
+        self.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
+        self.titleLabel?.tintColor = .white
+        self.setTitleColor(.white, for: .normal)
     }
 }
