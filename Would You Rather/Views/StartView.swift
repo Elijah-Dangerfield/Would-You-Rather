@@ -52,6 +52,7 @@ class StartView: UIView{
     var option3: DisplayButton = {
         
         let option = DisplayButton()
+        option.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
         option.setTitle("R-Rated", for: .normal)
         option.translatesAutoresizingMaskIntoConstraints = false
         return option

@@ -35,7 +35,7 @@ class QuestionsView: UIView{
         
         let label = UILabel()
         label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
-        label.font = UIFont(name: "HelveticaNeue", size: 20)
+        label.font = UIFont(name: "HelveticaNeue", size: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -44,7 +44,7 @@ class QuestionsView: UIView{
         
         let label = UILabel()
         label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
-        label.font = UIFont(name: "HelveticaNeue", size: 20)
+        label.font = UIFont(name: "HelveticaNeue", size: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -54,7 +54,6 @@ class QuestionsView: UIView{
         
         let button = ActionButton()
         button.setTitle("Next", for: .normal)
-        button.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -62,7 +61,6 @@ class QuestionsView: UIView{
     var option1: DisplayButton = {
         
         let option = DisplayButton()
-        option.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
         option.translatesAutoresizingMaskIntoConstraints = false
         return option
     }()
@@ -70,7 +68,6 @@ class QuestionsView: UIView{
     var option2: DisplayButton = {
         
         let option = DisplayButton()
-        option.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
         option.translatesAutoresizingMaskIntoConstraints = false
         return option
     }()
@@ -125,9 +122,9 @@ class QuestionsView: UIView{
         
         Constraints.constraintWithBottomAndCenterXAnchor(field: nextButton, width: UIElementSizes.buttonWidth, height: 75, bottomAnchor: bottomAnchor, bottomConstatnt: -75, centerXAnchor: centerXAnchor, centerXConstant: 0)
         
-        Constraints.constraintWithBottomAndLeading(field: firstPercentage, width: 0, height: 0, bottomAnchor: option1.bottomAnchor, bottomConstant: -5, leadingAnchor: option1.leadingAnchor, leadingConstant: 5)
+        Constraints.constraintWithTopAndTrailingAnchor(field: firstPercentage, width: 0, height: 0, topAnchor: option1.bottomAnchor, topConstant: 5, trailingAnchor: option1.trailingAnchor, trailingConstant: -5)
         
-        Constraints.constraintWithBottomAndLeading(field: secondPercentage, width: 0, height: 0, bottomAnchor: option2.bottomAnchor, bottomConstant: -5, leadingAnchor: option2.leadingAnchor, leadingConstant: 5)
+        Constraints.constraintWithBottomAndLeading(field: secondPercentage, width: 0, height: 0, bottomAnchor: option2.topAnchor, bottomConstant: -5, leadingAnchor: option2.leadingAnchor, leadingConstant: 5)
         
     }
     

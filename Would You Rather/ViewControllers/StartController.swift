@@ -28,6 +28,19 @@ class StartController: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.startView.option1.isChecked = false
+        self.startView.option1.layer.borderWidth = 0
+        self.startView.option2.isChecked = false
+        self.startView.option2.layer.borderWidth = 0
+        self.startView.option3.isChecked = false
+        self.startView.option3.layer.borderWidth = 0
+        addOptions(sender: startView.option1)
+        addOptions(sender: startView.option2)
+        addOptions(sender: startView.option3)
+
+    }
+    
     fileprivate func setupView(){
         
         startView.option1.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
