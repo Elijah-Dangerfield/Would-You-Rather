@@ -128,6 +128,7 @@ class QuestionsView: UIView{
         Constraints.constraintWithBottomAndLeading(field: firstPercentage, width: 0, height: 0, bottomAnchor: option1.bottomAnchor, bottomConstant: -5, leadingAnchor: option1.leadingAnchor, leadingConstant: 5)
         
         Constraints.constraintWithBottomAndLeading(field: secondPercentage, width: 0, height: 0, bottomAnchor: option2.bottomAnchor, bottomConstant: -5, leadingAnchor: option2.leadingAnchor, leadingConstant: 5)
+        
     }
     
 }
