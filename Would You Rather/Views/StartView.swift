@@ -34,7 +34,7 @@ class StartView: UIView{
     var option1: DisplayButton = {
         
         let option = DisplayButton()
-        option.setTitle("Easy Decisions", for: .normal)
+        option.setTitle("The Warm Up", for: .normal)
         option.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
         option.translatesAutoresizingMaskIntoConstraints = false
         return option
