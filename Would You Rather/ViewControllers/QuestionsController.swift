@@ -86,8 +86,8 @@ class QuestionsController: UIViewController {
 
         questionsView.option1.layer.borderWidth = 0
         questionsView.option2.layer.borderWidth = 0
-       // firstPercentage.text = ""
-        //secondPercentage.text = ""
+        self.questionsView.firstPercentage.text = ""
+        self.questionsView.secondPercentage.text = ""
 
         if(seenQuestions.count >= total!){
 
@@ -142,8 +142,8 @@ class QuestionsController: UIViewController {
                     if let pSecond = document.get("2") as! Double? {
                         let proportionFirst = Int((pFirst/(pFirst+pSecond))*100)
                         print("First proportiong \(proportionFirst)")
-                      //  self.firstPercentage.text = "\(proportionFirst)%"
-                      //  self.secondPercentage.text = "\(100 - proportionFirst)%"
+                        self.questionsView.firstPercentage.text = "\(proportionFirst)%"
+                        self.questionsView.secondPercentage.text = "\(100 - proportionFirst)%"
                     }
                 }else{
                     print("Couldnt do the percentage thing \n\n")
