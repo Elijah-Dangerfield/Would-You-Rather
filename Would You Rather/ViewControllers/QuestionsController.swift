@@ -44,18 +44,18 @@ class QuestionsController: UIViewController {
     }
 
     func animateButtons() {
-        questionsView.option1.center.x = view.center.x // Place it in the center x of the view.
-        questionsView.option2.center.x += (view.bounds.width)/2// Place it on the right of the view with the width = the bounds'width of the view.
-        animateSlideIn(sender: questionsView.option1)
+        questionsView.option1.center.x += (self.questionsView.bounds.width)// Place it on the right of the view with the width = the bounds'width of the view.
+        questionsView.option2.center.x += (self.questionsView.bounds.width)// Place it on the right of the view with the width = the bounds'width of the view.
 
-        questionsView.option2.center.x = view.center.x // Place it in the center x of the view.
-        questionsView.option2.center.x += (view.bounds.width)/2 // Place it on the right of the view with the width = the bounds'width of the view.
-        animateSlideIn(sender: questionsView.option2)
+        
+        animateSlideIn(sender: self.questionsView.option1)
+        animateSlideIn(sender: self.questionsView.option2)
+
     }
 
     func animateSlideIn(sender: UIButton){
         UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
-            sender.center.x -= self.view.bounds.width
+            sender.center.x -= (self.questionsView.bounds.width)
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -167,7 +167,7 @@ class QuestionsController: UIViewController {
             if let document = document, document.exists {
 
                 if let questions = document.get("questions") as! [String]? {
-                    //self.animateButtons()
+                    self.animateButtons()
                     self.questionsView.option1.setTitle(questions[0].lowercased(), for: .normal)
                     self.questionsView.option2.setTitle(questions[1].lowercased(), for: .normal)
                     self.questionsView.option1.isUserInteractionEnabled = true

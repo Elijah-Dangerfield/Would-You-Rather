@@ -44,8 +44,11 @@ class DisplayButton: UIButton {
         layer.borderColor = Colors.accentColor.cgColor
         layer.backgroundColor = Colors.mainBlue.cgColor
         self.titleLabel?.numberOfLines = 0
+        self.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.titleLabel?.lineBreakMode = .byWordWrapping
+        self.titleLabel?.minimumScaleFactor = 0.01
         self.titleEdgeInsets =  UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
-        self.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
+        self.titleLabel!.font = UIFont(name: "System", size: 44)
         self.titleLabel?.tintColor = .white
         layer.borderWidth = 0
         layer.cornerRadius  = 12
