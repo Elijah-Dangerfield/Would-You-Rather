@@ -66,6 +66,15 @@ class StartView: UIView{
         return button
     }()
     
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [option1, option2, option3])
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -84,9 +93,7 @@ class StartView: UIView{
         
         self.addSubview(titleLabel)
         self.addSubview(optionsHeaderLabel)
-        self.addSubview(option1)
-        self.addSubview(option2)
-        self.addSubview(option3)
+        self.addSubview(stackView)
         self.addSubview(startButton)
         setConstraints()
         
@@ -94,17 +101,15 @@ class StartView: UIView{
     
     fileprivate func setConstraints(){
         
-        Constraints.constraintWithTopAndCenterXAnchor(field: titleLabel, width: 0, height: 30, topAnchor: topAnchor, topConstant: UIElementSizes.navigationBarHeight, centerXAnchor: centerXAnchor, centerXConstant: 0)
+        Constraints.constraintWithTopAndCenterXAnchor(field: titleLabel, width: 0, height: 30, topAnchor: topAnchor, topConstant: UIElementSizes.navigationBarHeight-25, centerXAnchor: centerXAnchor, centerXConstant: 0)
         
         Constraints.constraintWithTopAndLeadingAnchor(field: optionsHeaderLabel, width: 0, height: 30, topAnchor: titleLabel.bottomAnchor, topConstant: 50, leadingAnchor: titleLabel.leadingAnchor, leadingConstant: 0)
         
-        Constraints.constraintWithTopAndCenterXAnchor(field: option1, width: UIElementSizes.buttonWidth, height: 100, topAnchor: optionsHeaderLabel.bottomAnchor, topConstant: 25, centerXAnchor: centerXAnchor, centerXConstant: 0)
+        Constraints.constrainWithBottomAndTopLeadingAndTrailing(field: stackView, width: 0, height: 0, bottomAnchor: startButton.topAnchor, bottomConstant: -25, topAnchor: optionsHeaderLabel.bottomAnchor, topConstant: 25, leadingAnchor: leadingAnchor, leadingConstant: 25, trailingAnchor: trailingAnchor, trailingConstant: -25)
         
-        Constraints.constraintWithTopAndCenterXAnchor(field: option2, width: UIElementSizes.buttonWidth, height: 100, topAnchor: option1.bottomAnchor, topConstant: 25, centerXAnchor: centerXAnchor, centerXConstant: 0)
-        
-        Constraints.constraintWithTopAndCenterXAnchor(field: option3, width: UIElementSizes.buttonWidth, height: 100, topAnchor: option2.bottomAnchor, topConstant: 25, centerXAnchor: centerXAnchor, centerXConstant: 0)
         
         Constraints.constraintWithBottomAndCenterXAnchor(field: startButton, width: UIElementSizes.buttonWidth, height: 75, bottomAnchor: bottomAnchor, bottomConstatnt: -75, centerXAnchor: centerXAnchor, centerXConstant: 0)
+        
     }
     
 }

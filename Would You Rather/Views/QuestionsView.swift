@@ -34,7 +34,6 @@ class QuestionsView: UIView{
     var firstPercentage: UILabel = {
         
         let label = UILabel()
-        label.text = "100%"
         label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
         label.font = UIFont(name: "HelveticaNeue", size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +43,6 @@ class QuestionsView: UIView{
     var secondPercentage: UILabel = {
         
         let label = UILabel()
-        label.text = "100%"
         label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
         label.font = UIFont(name: "HelveticaNeue", size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -115,7 +113,7 @@ class QuestionsView: UIView{
     
     fileprivate func setConstraints(){
         
-        Constraints.constraintWithTopAndCenterXAnchor(field: titleLabel, width: 0, height: 30, topAnchor: topAnchor, topConstant: UIElementSizes.navigationBarHeight, centerXAnchor: centerXAnchor, centerXConstant: 0)
+        Constraints.constraintWithTopAndCenterXAnchor(field: titleLabel, width: 0, height: 30, topAnchor: topAnchor, topConstant: UIElementSizes.navigationBarHeight - 25, centerXAnchor: centerXAnchor, centerXConstant: 0)
         
         Constraints.constrainWithBottomAndTopLeadingAndTrailing(field: containerView, width: 0, height: 0, bottomAnchor: nextButton.topAnchor, bottomConstant: -25, topAnchor: titleLabel.bottomAnchor, topConstant: 25, leadingAnchor: leadingAnchor, leadingConstant: 25, trailingAnchor: trailingAnchor, trailingConstant: -25)
         
