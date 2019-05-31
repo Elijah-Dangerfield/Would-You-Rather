@@ -37,11 +37,14 @@ class DisplayButton: UIButton {
         
     }
     
+    
     private func setupButton() {
         self.addTarget(self, action: #selector(btnClick(sender:)), for: .touchUpInside)
 
         layer.borderColor = Colors.accentColor.cgColor
         layer.backgroundColor = Colors.mainBlue.cgColor
+        self.titleLabel?.numberOfLines = 0
+        self.titleEdgeInsets =  UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
         self.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
         self.titleLabel?.tintColor = .white
         layer.borderWidth = 0

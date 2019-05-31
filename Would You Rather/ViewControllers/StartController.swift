@@ -20,6 +20,7 @@ class StartController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController!.navigationBar.tintColor = .white
         UIElementSizes.navigationBarHeight = navigationController!.navigationBar.bounds.maxY
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.navigationController?.navigationBar.isTranslucent = false
@@ -49,7 +50,7 @@ class StartController: UIViewController {
             print("User has started game")
             let questionsVC = QuestionsController()
             questionsVC.chosenPacks = self.chosenPacks
-            self.navigationController?.pushViewController(questionsVC, animated: true)
+            self.navigationController?.pushViewController(questionsVC, animated: false)
         }
     }
     

@@ -111,10 +111,10 @@
 		5A6281B022A043AA00FF761A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5A89549C22783C6900B55DF1 /* DisplayButton.swift */,
-				5A89549A22782F6000B55DF1 /* ActionButton.swift */,
 				5A6281B322A043E200FF761A /* StartView.swift */,
 				5A6281C622A0711C00FF761A /* QuestionsView.swift */,
+				5A89549C22783C6900B55DF1 /* DisplayButton.swift */,
+				5A89549A22782F6000B55DF1 /* ActionButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -16,5 +16,5 @@ struct UIElementSizes {
     //initialized to zero, changed in first viewDidLoad()
     static var navigationBarHeight: CGFloat = 0
     
-    static var buttonWidth: CGFloat = windowWidth/1.5
+    static var buttonWidth: CGFloat = windowWidth/1.25
 }
