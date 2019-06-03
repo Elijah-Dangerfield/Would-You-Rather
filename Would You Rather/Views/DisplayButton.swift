@@ -43,6 +43,7 @@ class DisplayButton: UIButton {
 
         layer.borderColor = Colors.accentColor.cgColor
         layer.backgroundColor = Colors.mainBlue.cgColor
+        self.isExclusiveTouch = true
         self.titleLabel?.numberOfLines = 0
         self.titleLabel?.adjustsFontSizeToFitWidth = true
         self.titleLabel?.lineBreakMode = .byWordWrapping

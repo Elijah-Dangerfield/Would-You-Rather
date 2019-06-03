@@ -30,6 +30,7 @@ class ActionButton: UIButton {
     
     private func setupButton() {
         self.layer.backgroundColor = Colors.lightBlue.cgColor
+        self.isExclusiveTouch = true
         self.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
         self.titleLabel?.tintColor = .white
         self.setTitleColor(.white, for: .normal)

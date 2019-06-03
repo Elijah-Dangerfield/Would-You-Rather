@@ -110,6 +110,9 @@ class QuestionsController: UIViewController {
     }
 
     @objc func vote(sender: UIButton){
+        //set the next button to not be clickable until after the percentages show
+        self.questionsView.nextButton.isUserInteractionEnabled = false
+        
         let sound = URL(fileURLWithPath: Bundle.main.path(forResource: "btn_click_soft", ofType: "mp3")!)
         let db = Firestore.firestore()
         let currentQuestion = String(seenQuestions.last!)
@@ -144,6 +147,7 @@ class QuestionsController: UIViewController {
                         print("First proportiong \(proportionFirst)")
                         self.questionsView.firstPercentage.text = "\(proportionFirst)%"
                         self.questionsView.secondPercentage.text = "\(100 - proportionFirst)%"
+                        self.questionsView.nextButton.isUserInteractionEnabled = true
                     }
                 }else{
                     print("Couldnt do the percentage thing \n\n")
