@@ -14,7 +14,7 @@ import Firebase
 class StartController: UIViewController {
     
     lazy var startView: StartView = {return StartView()}()
-    
+
     var chosenPacks = [String]()
     
     override func viewDidLoad() {
@@ -53,19 +53,31 @@ class StartController: UIViewController {
     
     @objc
     func handleStartButtonClick(sender: ActionButton){
-        if chosenPacks.isEmpty{
-            let alert = UIAlertController(title: "No packs Selected", message: "Please chose a pack", preferredStyle: UIAlertController.Style.alert)
+        
+        if(Reachability.isConnectedToNetwork()){
+            if chosenPacks.isEmpty{
+                let alert = UIAlertController(title: "No packs Selected", message: "Please chose a pack", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+                    return
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }else{
+                print("User has started game")
+                let questionsVC = QuestionsController()
+                questionsVC.chosenPacks = self.chosenPacks
+                self.navigationController?.pushViewController(questionsVC, animated: false)
+            }
+        }else{
+            let alert = UIAlertController(title: "No internect connection", message: "We're sorry, this game requires an internet connection", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
                 return
             }))
             self.present(alert, animated: true, completion: nil)
-        }else{
-            print("User has started game")
-            let questionsVC = QuestionsController()
-            questionsVC.chosenPacks = self.chosenPacks
-            self.navigationController?.pushViewController(questionsVC, animated: false)
         }
+        
     }
+    
+    
     
     @objc
     func addOptions(sender: DisplayButton){

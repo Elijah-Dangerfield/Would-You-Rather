@@ -8,4 +8,5 @@ target 'Would You Rather' do
   # Pods for Would You Rather
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
+
 end
