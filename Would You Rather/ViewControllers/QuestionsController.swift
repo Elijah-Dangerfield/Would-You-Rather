@@ -74,13 +74,16 @@ class QuestionsController: UIViewController {
     func getNextQuestion() {
         questionsView.firstPercentage.text = ""
         questionsView.secondPercentage.text = ""
-        viewModel.getQuestion {
-            self.showQuestion()
-            self.options.forEach {
-                $0.isUserInteractionEnabled = true
-                $0.uncheck()
+        viewModel.getQuestion(
+            whenEmpty: {showSimpleAlert(withTitle: "Out of Questions",
+                        message: "There are no more questions for the selected packs :( BUT more will be coming soon :)")},
+            completion: {
+                self.showQuestion()
+                self.options.forEach {
+                    $0.isUserInteractionEnabled = true
+                    $0.uncheck()
             }
-        }
+        })
     }
 }
 

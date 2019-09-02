@@ -86,14 +86,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5A1BDAA822A97B78007FC449 /* Custom Classes */ = {
+		5A1BDAA822A97B78007FC449 /* custom */ = {
 			isa = PBXGroup;
 			children = (
 				5A6281BD22A04C3000FF761A /* UIElementSizes.swift */,
 				5A6281C422A0543600FF761A /* Colors.swift */,
 				5A1BDAA922A97B8D007FC449 /* Reachability.swift */,
 			);
-			path = "Custom Classes";
+			path = custom;
 			sourceTree = "<group>";
 		};
 		5A2C15792277A88C00361120 = {
@@ -119,7 +119,7 @@
 			children = (
 				5A310A1B231D66E20035732F /* model */,
 				5A310A18231D63C60035732F /* viewModel */,
-				5A1BDAA822A97B78007FC449 /* Custom Classes */,
+				5A1BDAA822A97B78007FC449 /* custom */,
 				5A6281BB22A049B500FF761A /* ViewControllers */,
 				5A6281B522A0455C00FF761A /* Extensions */,
 				5A6281B022A043AA00FF761A /* Views */,
