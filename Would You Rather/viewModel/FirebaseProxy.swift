@@ -12,9 +12,14 @@ import Firebase
 struct FirebaseProxy {
     private static let db = Firestore.firestore()
 
-    static func getQuestion(withId id: Int) -> Question{
+    static func getQuestion(withId id: Int, then completion: @escaping (Question) -> Void){
         //get next question
-        return Question(votes1: 0, votes2: 0, question1: "", question2: "")
+        db.collection("Test").document("\(id)").getDocument { (doc, err) in
+            if let doc = doc, doc.exists {
+                let question = Question(dictionary: doc.data()!) //banged because if the document was invalid the guard wouldve caught it
+                completion(question)
+            }
+        }
     }
     
     static func getPool(fromPacks chosenPacks: [String],completion: @escaping ([Int]) -> Void) {
@@ -28,7 +33,7 @@ struct FirebaseProxy {
                 let list = Array(range[0]...range[1])
                 pool.append(contentsOf: list)
                 completed += 1
-                if(completed == chosenPacks.count) {completion(pool)}
+                if(completed == chosenPacks.count) {completion(pool.shuffled())}
             }
         }
     }

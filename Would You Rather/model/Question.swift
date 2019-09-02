@@ -15,10 +15,10 @@ class Question {
     let question1: String
     let question2: String
     
-    init(votes1: Double,votes2: Double,question1: String,question2: String) {
-        self.votes1 = votes2
-        self.votes2 = votes2
-        self.question1 = question1
-        self.question2 = question2
+    init(dictionary: [String: Any]) {
+        self.votes1 = dictionary["1"] as? Double ?? 0.0
+        self.votes2 = dictionary["2"] as? Double ?? 0.0
+        self.question1 = (dictionary["questions"] as? [String] ?? [String]())[0]
+        self.question2 = (dictionary["questions"] as? [String] ?? [String]())[1]
     }
 }

@@ -19,14 +19,16 @@ class GameViewModel {
         self.chosenPacks = chosenPacks
         FirebaseProxy.getPool(fromPacks: chosenPacks) {res in
             self.pool = res
-            self.getQuestion(withId: self.pool.popLast()) {print("EMPTY POOL ON INIT OF VIEW MODEL")}
+            self.getQuestion() {print("EMPTY POOL ON INIT OF VIEW MODEL")}
         }
     }
     
-    func getQuestion(withId id : Int?, whenEmpty: (() -> Void) = {}) {
-        guard let id = id else { whenEmpty()
+    func getQuestion(whenEmpty: (() -> Void) = {}) {
+        guard let id = self.pool.popLast() else { whenEmpty()
             return
         }
-        self.currentQuestion = FirebaseProxy.getQuestion(withId: id)
+        FirebaseProxy.getQuestion(withId: id) {q in
+            self.currentQuestion = q
+        }
     }
 }
