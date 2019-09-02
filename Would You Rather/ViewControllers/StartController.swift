@@ -38,13 +38,14 @@ class StartController: UIViewController {
     }
     
     func handleStartButtonClick() {
-        
+        startView.startButton.isUserInteractionEnabled = false
         let chosenPacks = options.filter { $0.isChecked}.map {$0.currentTitle!.lowercased()}
 
         if(Reachability.isConnectedToNetwork()){
             if chosenPacks.isEmpty{
                 let alert = UIAlertController(title: "No packs Selected", message: "Please chose a pack", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { _ in
+                    self.startView.startButton.isUserInteractionEnabled = true
                     return
                 }))
                 self.present(alert, animated: true, completion: nil)
@@ -53,10 +54,12 @@ class StartController: UIViewController {
                 let questionsVC = QuestionsController()
                 questionsVC.chosenPacks = chosenPacks
                 self.navigationController?.pushViewController(questionsVC, animated: false)
+                self.startView.startButton.isUserInteractionEnabled = true
             }
         }else{
             let alert = UIAlertController(title: "No internect connection", message: "We're sorry, this game requires an internet connection", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+                self.startView.startButton.isUserInteractionEnabled = true
                 return
             }))
             self.present(alert, animated: true, completion: nil)

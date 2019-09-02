@@ -12,10 +12,7 @@ import UIKit
 struct UIElementSizes {
 
     static var windowWidth: CGFloat = UIScreen.main.bounds.width
-    static var windowHeight: CGFloat = UIScreen.main.bounds.height
-    //initialized to zero, changed in first viewDidLoad()
-    static var navigationBarHeight: CGFloat = 0
-    
+    static var windowHeight: CGFloat = UIScreen.main.bounds.height    
     static var buttonWidth: CGFloat = windowWidth/1.25
     static var buttonHeight: CGFloat = windowHeight/13
 }
