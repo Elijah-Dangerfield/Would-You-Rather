@@ -10,6 +10,9 @@ import UIKit
 
 class ActionButton: UIButton {
     
+    var onClickListener: ACTION = nil
+
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
@@ -29,10 +32,16 @@ class ActionButton: UIButton {
     }
     
     private func setupButton() {
-        self.layer.backgroundColor = Colors.lightBlue.cgColor
-        self.isExclusiveTouch = true
-        self.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
-        self.titleLabel?.tintColor = .white
-        self.setTitleColor(.white, for: .normal)
+        addTarget(self, action: #selector(handleAction), for: .touchUpInside)
+        layer.backgroundColor = Colors.lightBlue.cgColor
+        isExclusiveTouch = true
+        titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
+        titleLabel?.tintColor = .white
+        setTitleColor(.white, for: .normal)
+    }
+    
+    @objc
+    func handleAction() {
+        onClickListener?()
     }
 }

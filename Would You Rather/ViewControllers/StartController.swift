@@ -13,47 +13,34 @@ import Firebase
 
 class StartController: UIViewController {
     
-    lazy var startView: StartView = {return StartView()}()
-
-    var chosenPacks = [String]()
+    var startView =  StartView()
+    var options = [DisplayButton]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController!.navigationBar.tintColor = .white
-        UIElementSizes.navigationBarHeight = navigationController!.navigationBar.bounds.maxY
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.navigationController?.navigationBar.isTranslucent = false
         
+        options = [startView.option1,startView.option2,startView.option3]
         setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.startView.option1.isChecked = false
-        self.startView.option1.layer.borderWidth = 0
-        self.startView.option2.isChecked = false
-        self.startView.option2.layer.borderWidth = 0
-        self.startView.option3.isChecked = false
-        self.startView.option3.layer.borderWidth = 0
-        addOptions(sender: startView.option1)
-        addOptions(sender: startView.option2)
-        addOptions(sender: startView.option3)
-
+        options.forEach { btn in btn.uncheck()}
     }
     
     fileprivate func setupView(){
         
-        startView.option1.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
-        startView.option2.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
-        startView.option3.addTarget(self, action: #selector(addOptions(sender:)), for: .touchUpInside)
-        startView.startButton.addTarget(self, action: #selector(handleStartButtonClick(sender:)), for: .touchUpInside)
+        startView.startButton.onClickListener = handleStartButtonClick
         view = startView
-        
     }
     
-    @objc
-    func handleStartButtonClick(sender: ActionButton){
+    func handleStartButtonClick() {
         
+        let chosenPacks = options.filter { $0.isChecked}.map {$0.currentTitle!.lowercased()}
+
         if(Reachability.isConnectedToNetwork()){
             if chosenPacks.isEmpty{
                 let alert = UIAlertController(title: "No packs Selected", message: "Please chose a pack", preferredStyle: UIAlertController.Style.alert)
@@ -64,7 +51,7 @@ class StartController: UIViewController {
             }else{
                 print("User has started game")
                 let questionsVC = QuestionsController()
-                questionsVC.chosenPacks = self.chosenPacks
+                questionsVC.chosenPacks = chosenPacks
                 self.navigationController?.pushViewController(questionsVC, animated: false)
             }
         }else{
@@ -75,46 +62,6 @@ class StartController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
-    }
-    
-    
-    
-    @objc
-    func addOptions(sender: DisplayButton){
-        
-        if(sender.isChecked){
-            if let selectedPack = sender.currentTitle?.lowercased(){
-                chosenPacks.append(selectedPack)
-                print("New Chosen Packs array \(chosenPacks)")
-            }
-        }else{
-            if let selectedPack = sender.currentTitle?.lowercased(){
-                if let index = chosenPacks.firstIndex(of: selectedPack) {
-                    chosenPacks.remove(at: index)
-                    print("New Chosen Packs array \(chosenPacks)")
-                    
-                }
-            }
-        }
-    }
-    
- 
-    func generateDocs(){
-        
-        let db = Firestore.firestore()
-        let collection = db.collection("Test")
-        
-        for i in 0...400{
-            collection.document(String(i)).updateData([
-                "1": 0,
-                "2": 0
-            ]) { err in
-                if let err = err {
-                    print("Error updating document: \(err)")
-                } else {
-                    print("Document successfully updated")
-                }
-            }        }
     }
 }
 

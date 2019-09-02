@@ -5,13 +5,13 @@
 //  Created by eli dangerfield on 4/30/19.
 //  Copyright © 2019 eli dangerfield. All rights reserved.
 //
-
-import Foundation
 import UIKit
+typealias ACTION = (() -> ())?
 
 class DisplayButton: UIButton {
     
     var isChecked: Bool = false
+    var onClickListener: ACTION = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,32 +25,44 @@ class DisplayButton: UIButton {
     }
     
     @objc
-    func btnClick(sender: DisplayButton){
+    func toggle(sender: DisplayButton){
         
-        if(sender.isChecked){
-            sender.layer.borderWidth = 0
-            sender.isChecked = false
+        if(isChecked){
+            uncheck()
         }else{
-            sender.layer.borderWidth = 1
-            sender.isChecked = true
+            check()
         }
-        
     }
     
+    func check(){
+        layer.borderWidth = 1
+        isChecked = true
+    }
+    
+    func uncheck(){
+        layer.borderWidth = 0
+        isChecked = false
+    }
+    
+    @objc
+    func handleAction() {
+        onClickListener?()
+    }
     
     private func setupButton() {
-        self.addTarget(self, action: #selector(btnClick(sender:)), for: .touchUpInside)
+        addTarget(self, action: #selector(toggle(sender:)), for: .touchUpInside)
+        addTarget(self, action: #selector(handleAction), for: .touchUpInside)
 
         layer.borderColor = Colors.accentColor.cgColor
         layer.backgroundColor = Colors.mainBlue.cgColor
-        self.isExclusiveTouch = true
-        self.titleLabel?.numberOfLines = 0
-        self.titleLabel?.adjustsFontSizeToFitWidth = true
-        self.titleLabel?.lineBreakMode = .byWordWrapping
-        self.titleLabel?.minimumScaleFactor = 0.01
-        self.titleEdgeInsets =  UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
-        self.titleLabel!.font = UIFont(name: "System", size: 44)
-        self.titleLabel?.tintColor = .white
+        isExclusiveTouch = true
+        titleLabel?.numberOfLines = 0
+        titleLabel?.adjustsFontSizeToFitWidth = true
+        titleLabel?.lineBreakMode = .byWordWrapping
+        titleLabel?.minimumScaleFactor = 0.01
+        titleEdgeInsets =  UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
+        titleLabel!.font = UIFont(name: "System", size: 44)
+        titleLabel?.tintColor = .white
         layer.borderWidth = 0
         layer.cornerRadius  = 12
         setTitleColor(.white, for: .normal)
