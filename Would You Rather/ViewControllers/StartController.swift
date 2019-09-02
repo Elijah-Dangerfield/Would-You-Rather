@@ -60,10 +60,12 @@ class StartController: UIViewController {
     }
     
     func startGame(with chosenPacks: [String]) {
-        let viewModel = GameViewModel(withPacks: chosenPacks) {
-        let questionsVC = QuestionsController(viewModel: viewModel)
-        self.navigationController?.pushViewController(questionsVC, animated: false)
-        self.startView.startButton.isUserInteractionEnabled = true
+         GameViewModel(withPacks: chosenPacks) { gameViewModel in
+            let questionsVC = QuestionsController(viewModel: gameViewModel)
+            self.navigationController?.pushViewController(questionsVC, animated: false)
+            self.startView.startButton.isUserInteractionEnabled = true
+        }
+       
     }
 }
 

@@ -87,6 +87,8 @@
 		5A1BDAA822A97B78007FC449 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5A6281BD22A04C3000FF761A /* UIElementSizes.swift */,
+				5A6281C422A0543600FF761A /* Colors.swift */,
 				5A1BDAA922A97B8D007FC449 /* Reachability.swift */,
 			);
 			path = "Custom Classes";
@@ -116,7 +118,6 @@
 				5A310A1B231D66E20035732F /* model */,
 				5A310A18231D63C60035732F /* viewModel */,
 				5A1BDAA822A97B78007FC449 /* Custom Classes */,
-				5A6281BC22A04C2000FF761A /* Theme */,
 				5A6281BB22A049B500FF761A /* ViewControllers */,
 				5A6281B522A0455C00FF761A /* Extensions */,
 				5A6281B022A043AA00FF761A /* Views */,
@@ -176,15 +177,6 @@
 				5A89549E227A8E1C00B55DF1 /* StartController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		5A6281BC22A04C2000FF761A /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-				5A6281BD22A04C3000FF761A /* UIElementSizes.swift */,
-				5A6281C422A0543600FF761A /* Colors.swift */,
-			);
-			path = Theme;
 			sourceTree = "<group>";
 		};
 		BE579BAE3147D0075217B7D1 /* Pods */ = {

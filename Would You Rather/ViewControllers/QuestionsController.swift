@@ -38,8 +38,8 @@ class QuestionsController: UIViewController {
     }
     
     func showQuestion() {
-        self.questionsView.option1.titleLabel?.text = viewModel.currentQuestion?.question1
-        self.questionsView.option2.titleLabel?.text = viewModel.currentQuestion?.question2
+        self.questionsView.option1.setTitle(viewModel.currentQuestion?.question1, for: .normal)
+        self.questionsView.option2.setTitle(viewModel.currentQuestion?.question2, for: .normal)
     }
     
     
