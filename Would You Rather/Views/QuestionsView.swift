@@ -76,9 +76,8 @@ class QuestionsView: UIView{
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.backgroundColor = Colors.mainBlue.cgColor
-        view.layer.borderWidth = 1
-        view.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         view.clipsToBounds = true // this will make sure its children do not go out of the boundary
+        view.build()
         return view
     }()
     
@@ -107,53 +106,55 @@ class QuestionsView: UIView{
     fileprivate func setConstraints(){
         
         titleLabel
-            .top(safeAreaLayoutGuide.topAnchor)
-            .centerX(centerXAnchor)
-            .build()
+        .top(safeAreaLayoutGuide.topAnchor)
+        .centerX(centerXAnchor)
+        .build()
+        
         
         containerView
             .top(titleLabel.bottomAnchor,constant: 25)
-            .bottom(nextButton.topAnchor, constant: -25)
             .leading(leadingAnchor,constant: 25)
-            .trailing(trailingAnchor, constant: -25)
+            .trailing(trailingAnchor,constant: -25)
+            .bottom(nextButton.topAnchor,constant: -25)
+            .build()
+        
+        
+        orLabel
+            .centerX(containerView.centerXAnchor)
+            .centerY(containerView.centerYAnchor)
             .build()
         
         option1
+            .bottom(orLabel.topAnchor,constant: -25)
             .top(containerView.topAnchor)
             .leading(containerView.leadingAnchor)
             .trailing(containerView.trailingAnchor)
             .build()
         
-        firstPercentage
-            .top(option1.bottomAnchor)
-            .leading(containerView.leadingAnchor)
-            .trailing(containerView.trailingAnchor)
-            .build()
-        
-        orLabel
-            .top(firstPercentage.bottomAnchor)
-            .leading(containerView.leadingAnchor)
-            .trailing(containerView.trailingAnchor)
-            .build()
-        
-        secondPercentage
-            .top(orLabel.bottomAnchor)
-            .leading(containerView.leadingAnchor)
-            .trailing(containerView.trailingAnchor)
-            .build()
-        
         option2
-            .top(secondPercentage.bottomAnchor)
+            .top(orLabel.bottomAnchor,constant: 25)
+            .bottom(containerView.bottomAnchor)
             .leading(containerView.leadingAnchor)
             .trailing(containerView.trailingAnchor)
             .build()
-
+        
+        
         nextButton
-            .bottom(bottomAnchor,constant: -75)
-            .centerX(centerXAnchor)
-            .width(UIElementSizes.buttonWidth)
             .height(UIElementSizes.buttonHeight)
+            .width(UIElementSizes.buttonWidth)
+            .bottom(bottomAnchor, constant: -75)
+            .centerX(centerXAnchor)
             .build()
+        
+        firstPercentage
+            .top(option1.bottomAnchor,constant: 5)
+            .trailing(containerView.trailingAnchor,constant: -5)
+            .build()
+       
+        secondPercentage
+            .bottom(option2.topAnchor,constant: -5)
+            .leading(containerView.leadingAnchor, constant: 5)
+    
     }
     
 }
