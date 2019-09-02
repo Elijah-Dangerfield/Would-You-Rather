@@ -19,10 +19,7 @@ class StartController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController!.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-        self.navigationController?.navigationBar.isTranslucent = false
-        
+        setUpNavBar()
         options = [startView.option1,startView.option2,startView.option3]
         setupView()
     }
@@ -31,8 +28,13 @@ class StartController: UIViewController {
         options.forEach { btn in btn.uncheck()}
     }
     
-    fileprivate func setupView(){
-        
+    fileprivate func setUpNavBar() {
+        self.navigationController!.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        self.navigationController?.navigationBar.isTranslucent = false
+    }
+    
+    fileprivate func setupView() {
         startView.startButton.onClickListener = handleStartButtonClick
         view = startView
     }
@@ -40,31 +42,29 @@ class StartController: UIViewController {
     func handleStartButtonClick() {
         startView.startButton.isUserInteractionEnabled = false
         let chosenPacks = options.filter { $0.isChecked}.map {$0.currentTitle!.lowercased()}
-
-        if(Reachability.isConnectedToNetwork()){
-            if chosenPacks.isEmpty{
-                let alert = UIAlertController(title: "No packs Selected", message: "Please chose a pack", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { _ in
-                    self.startView.startButton.isUserInteractionEnabled = true
-                    return
-                }))
-                self.present(alert, animated: true, completion: nil)
-            }else{
-                print("User has started game")
-                let questionsVC = QuestionsController()
-                questionsVC.chosenPacks = chosenPacks
-                self.navigationController?.pushViewController(questionsVC, animated: false)
-                self.startView.startButton.isUserInteractionEnabled = true
-            }
-        }else{
-            let alert = UIAlertController(title: "No internect connection", message: "We're sorry, this game requires an internet connection", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
-                self.startView.startButton.isUserInteractionEnabled = true
-                return
-            }))
-            self.present(alert, animated: true, completion: nil)
+        
+        if(!Reachability.isConnectedToNetwork()) {
+            showSimpleAlert(withTitle: "No Internet Connection",
+                            message: "Please check your connection and try again")
+            startView.startButton.isUserInteractionEnabled = true
+            return
         }
         
+        if(chosenPacks.isEmpty) {
+            showSimpleAlert(withTitle: "No Selected Packs",
+                            message: "Please chose a pack")
+            startView.startButton.isUserInteractionEnabled = true
+            return
+        }
+        startGame(with: chosenPacks)
+    }
+    
+    func startGame(with chosenPacks: [String]) {
+        let viewModel = GameViewModel(withPacks: chosenPacks)
+        let questionsVC = QuestionsController(viewModel: viewModel)
+        questionsVC.chosenPacks = chosenPacks
+        self.navigationController?.pushViewController(questionsVC, animated: false)
+        self.startView.startButton.isUserInteractionEnabled = true
     }
 }
 

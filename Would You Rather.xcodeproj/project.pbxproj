@@ -17,6 +17,10 @@
 		5A2C15902277A88D00361120 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2C158E2277A88D00361120 /* LaunchScreen.storyboard */; };
 		5A2C15982277A8B400361120 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A2C15972277A8B400361120 /* GoogleService-Info.plist */; };
 		5A310A17231C908B0035732F /* View+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A310A16231C908B0035732F /* View+Constraints.swift */; };
+		5A310A1A231D63DE0035732F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A310A19231D63DE0035732F /* GameViewModel.swift */; };
+		5A310A1D231D66F20035732F /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A310A1C231D66F20035732F /* Question.swift */; };
+		5A310A1F231D69EA0035732F /* FirebaseProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A310A1E231D69EA0035732F /* FirebaseProxy.swift */; };
+		5A310A21231D6EA30035732F /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A310A20231D6EA30035732F /* UIViewController+Alert.swift */; };
 		5A6281B422A043E200FF761A /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6281B322A043E200FF761A /* StartView.swift */; };
 		5A6281B722A0459B00FF761A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6281B622A0459B00FF761A /* UIColor+Extensions.swift */; };
 		5A6281BE22A04C3000FF761A /* UIElementSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6281BD22A04C3000FF761A /* UIElementSizes.swift */; };
@@ -41,6 +45,10 @@
 		5A2C15912277A88D00361120 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A2C15972277A8B400361120 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A310A16231C908B0035732F /* View+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Constraints.swift"; sourceTree = "<group>"; };
+		5A310A19231D63DE0035732F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		5A310A1C231D66F20035732F /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		5A310A1E231D69EA0035732F /* FirebaseProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProxy.swift; sourceTree = "<group>"; };
+		5A310A20231D6EA30035732F /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		5A6281B322A043E200FF761A /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		5A6281B622A0459B00FF761A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		5A6281BD22A04C3000FF761A /* UIElementSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementSizes.swift; sourceTree = "<group>"; };
@@ -103,6 +111,8 @@
 		5A2C15842277A88C00361120 /* Would You Rather */ = {
 			isa = PBXGroup;
 			children = (
+				5A310A1B231D66E20035732F /* model */,
+				5A310A18231D63C60035732F /* viewModel */,
 				5A1BDAA822A97B78007FC449 /* Custom Classes */,
 				5A6281BC22A04C2000FF761A /* Theme */,
 				5A6281BB22A049B500FF761A /* ViewControllers */,
@@ -116,6 +126,23 @@
 				5A2C15972277A8B400361120 /* GoogleService-Info.plist */,
 			);
 			path = "Would You Rather";
+			sourceTree = "<group>";
+		};
+		5A310A18231D63C60035732F /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5A310A19231D63DE0035732F /* GameViewModel.swift */,
+				5A310A1E231D69EA0035732F /* FirebaseProxy.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		5A310A1B231D66E20035732F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5A310A1C231D66F20035732F /* Question.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		5A6281B022A043AA00FF761A /* Views */ = {
@@ -134,6 +161,7 @@
 			children = (
 				5A6281B622A0459B00FF761A /* UIColor+Extensions.swift */,
 				5A310A16231C908B0035732F /* View+Constraints.swift */,
+				5A310A20231D6EA30035732F /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -303,13 +331,17 @@
 				5A6281C522A0543600FF761A /* Colors.swift in Sources */,
 				5A1BDAAA22A97B8D007FC449 /* Reachability.swift in Sources */,
 				5A2C15882277A88C00361120 /* QuestionsController.swift in Sources */,
+				5A310A1D231D66F20035732F /* Question.swift in Sources */,
 				5A89549F227A8E1C00B55DF1 /* StartController.swift in Sources */,
+				5A310A1A231D63DE0035732F /* GameViewModel.swift in Sources */,
 				5A6281C722A0711C00FF761A /* QuestionsView.swift in Sources */,
+				5A310A21231D6EA30035732F /* UIViewController+Alert.swift in Sources */,
 				5A6281B422A043E200FF761A /* StartView.swift in Sources */,
 				5A6281BE22A04C3000FF761A /* UIElementSizes.swift in Sources */,
 				5A6281B722A0459B00FF761A /* UIColor+Extensions.swift in Sources */,
 				5A2C15862277A88C00361120 /* AppDelegate.swift in Sources */,
 				5A89549B22782F6000B55DF1 /* ActionButton.swift in Sources */,
+				5A310A1F231D69EA0035732F /* FirebaseProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
