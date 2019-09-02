@@ -15,7 +15,6 @@ class StartView: UIView{
         label.text = "Would You Rather"
         label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -27,7 +26,6 @@ class StartView: UIView{
         let attributedString = NSMutableAttributedString(string: "Pick your poison:")
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedString.length))
         label.attributedText = attributedString
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -36,7 +34,6 @@ class StartView: UIView{
         let option = DisplayButton()
         option.setTitle("The Warm Up", for: .normal)
         option.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
-        option.translatesAutoresizingMaskIntoConstraints = false
         return option
     }()
     
@@ -45,7 +42,6 @@ class StartView: UIView{
         let option = DisplayButton()
         option.setTitle("Question Your Morals", for: .normal)
         option.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
-        option.translatesAutoresizingMaskIntoConstraints = false
         return option
     }()
     
@@ -54,7 +50,6 @@ class StartView: UIView{
         let option = DisplayButton()
         option.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
         option.setTitle("R-Rated", for: .normal)
-        option.translatesAutoresizingMaskIntoConstraints = false
         return option
     }()
 
@@ -63,7 +58,6 @@ class StartView: UIView{
         let button = ActionButton()
         button.setTitle("Start", for: .normal)
         button.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -78,38 +72,47 @@ class StartView: UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         setupView()
     }
     
     fileprivate func setupView() {
         
         backgroundColor = Colors.mainBlue
-        
-        self.addSubview(titleLabel)
-        self.addSubview(optionsHeaderLabel)
-        self.addSubview(stackView)
-        self.addSubview(startButton)
+        self.addSubviews([titleLabel,optionsHeaderLabel,stackView,startButton])
         setConstraints()
-        
     }
     
     fileprivate func setConstraints(){
         
-        Constraints.constraintWithTopAndCenterXAnchor(field: titleLabel, width: 0, height: 30, topAnchor: topAnchor, topConstant: UIElementSizes.navigationBarHeight-25, centerXAnchor: centerXAnchor, centerXConstant: 0)
+        titleLabel
+            .top(safeAreaLayoutGuide.topAnchor)
+            .centerX(centerXAnchor)
+            .build()
         
-        Constraints.constraintWithTopAndLeadingAnchor(field: optionsHeaderLabel, width: 0, height: 30, topAnchor: titleLabel.bottomAnchor, topConstant: 50, leadingAnchor: titleLabel.leadingAnchor, leadingConstant: 0)
+        optionsHeaderLabel
+            .top(titleLabel.bottomAnchor,constant: 50)
+            .leading(titleLabel.leadingAnchor)
+            .build()
         
-        Constraints.constrainWithBottomAndTopLeadingAndTrailing(field: stackView, width: 0, height: 0, bottomAnchor: startButton.topAnchor, bottomConstant: -25, topAnchor: optionsHeaderLabel.bottomAnchor, topConstant: 25, leadingAnchor: leadingAnchor, leadingConstant: 25, trailingAnchor: trailingAnchor, trailingConstant: -25)
+        stackView
+            .top(optionsHeaderLabel.bottomAnchor,constant: 25)
+            .bottom(startButton.topAnchor,constant: -25)
+            .leading(leadingAnchor,constant: 25)
+            .trailing(trailingAnchor,constant: -25)
+            .build()
+
         
-        
-        Constraints.constraintWithBottomAndCenterXAnchor(field: startButton, width: UIElementSizes.buttonWidth, height: 75, bottomAnchor: bottomAnchor, bottomConstatnt: -75, centerXAnchor: centerXAnchor, centerXConstant: 0)
+        startButton
+            .width(UIElementSizes.buttonWidth)
+            .height(UIElementSizes.buttonHeight)
+            .bottom(bottomAnchor,constant: -75)
+            .centerX(centerXAnchor)
+            .build()
         
     }
     

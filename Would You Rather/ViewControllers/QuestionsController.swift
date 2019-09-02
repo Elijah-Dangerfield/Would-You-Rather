@@ -199,10 +199,6 @@ class QuestionsController: UIViewController {
         self.nextQuestion()
         self.total = unseenQuestions.count
         }
-
-
-
-    
     
 }
 

@@ -76,6 +76,8 @@ class QuestionsView: UIView{
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.backgroundColor = Colors.mainBlue.cgColor
+        view.layer.borderWidth = 1
+        view.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         view.clipsToBounds = true // this will make sure its children do not go out of the boundary
         return view
     }()
@@ -96,36 +98,62 @@ class QuestionsView: UIView{
         
         backgroundColor = Colors.mainBlue
         
-        self.addSubview(titleLabel)
-        containerView.addSubview(orLabel)
-        containerView.addSubview(option1)
-        containerView.addSubview(option2)
-        containerView.addSubview(firstPercentage)
-        containerView.addSubview(secondPercentage)
-        self.addSubview(containerView)
-        self.addSubview(nextButton)
+        self.addSubviews([titleLabel,containerView,nextButton])
+        containerView.addSubviews([orLabel,option1,option2,firstPercentage,secondPercentage])
         setConstraints()
         
     }
     
     fileprivate func setConstraints(){
         
-        Constraints.constraintWithTopAndCenterXAnchor(field: titleLabel, width: 0, height: 30, topAnchor: topAnchor, topConstant: UIElementSizes.navigationBarHeight - 25, centerXAnchor: centerXAnchor, centerXConstant: 0)
+        titleLabel
+            .top(safeAreaLayoutGuide.topAnchor)
+            .centerX(centerXAnchor)
+            .build()
         
-        Constraints.constrainWithBottomAndTopLeadingAndTrailing(field: containerView, width: 0, height: 0, bottomAnchor: nextButton.topAnchor, bottomConstant: -25, topAnchor: titleLabel.bottomAnchor, topConstant: 25, leadingAnchor: leadingAnchor, leadingConstant: 25, trailingAnchor: trailingAnchor, trailingConstant: -25)
+        containerView
+            .top(titleLabel.bottomAnchor,constant: 25)
+            .bottom(nextButton.topAnchor, constant: -25)
+            .leading(leadingAnchor,constant: 25)
+            .trailing(trailingAnchor, constant: -25)
+            .build()
         
-        Constraints.constraintWithCenterYAndCenterXAnchor(field: orLabel, width: 0, height: 0, centerYAnchor: containerView.centerYAnchor, centerYConstant: 0, centerXAnchor: containerView.centerXAnchor, centerXConstant: 0)
+        option1
+            .top(containerView.topAnchor)
+            .leading(containerView.leadingAnchor)
+            .trailing(containerView.trailingAnchor)
+            .build()
         
-        Constraints.constrainWithBottomAndTopLeadingAndTrailing(field: option1, width: 0, height: 0, bottomAnchor: orLabel.topAnchor, bottomConstant: -25, topAnchor: containerView.topAnchor, topConstant: 0, leadingAnchor: containerView.leadingAnchor, leadingConstant: 0, trailingAnchor: containerView.trailingAnchor, trailingConstant: 0)
+        firstPercentage
+            .top(option1.bottomAnchor)
+            .leading(containerView.leadingAnchor)
+            .trailing(containerView.trailingAnchor)
+            .build()
         
-        Constraints.constrainWithBottomAndTopLeadingAndTrailing(field: option2, width: 0, height: 0, bottomAnchor: containerView.bottomAnchor, bottomConstant: 0, topAnchor: orLabel.bottomAnchor, topConstant: 25, leadingAnchor: containerView.leadingAnchor, leadingConstant: 0, trailingAnchor: containerView.trailingAnchor, trailingConstant: 0)
+        orLabel
+            .top(firstPercentage.bottomAnchor)
+            .leading(containerView.leadingAnchor)
+            .trailing(containerView.trailingAnchor)
+            .build()
         
-        Constraints.constraintWithBottomAndCenterXAnchor(field: nextButton, width: UIElementSizes.buttonWidth, height: 75, bottomAnchor: bottomAnchor, bottomConstatnt: -75, centerXAnchor: centerXAnchor, centerXConstant: 0)
+        secondPercentage
+            .top(orLabel.bottomAnchor)
+            .leading(containerView.leadingAnchor)
+            .trailing(containerView.trailingAnchor)
+            .build()
         
-        Constraints.constraintWithTopAndTrailingAnchor(field: firstPercentage, width: 0, height: 0, topAnchor: option1.bottomAnchor, topConstant: 5, trailingAnchor: option1.trailingAnchor, trailingConstant: -5)
-        
-        Constraints.constraintWithBottomAndLeading(field: secondPercentage, width: 0, height: 0, bottomAnchor: option2.topAnchor, bottomConstant: -5, leadingAnchor: option2.leadingAnchor, leadingConstant: 5)
-        
+        option2
+            .top(secondPercentage.bottomAnchor)
+            .leading(containerView.leadingAnchor)
+            .trailing(containerView.trailingAnchor)
+            .build()
+
+        nextButton
+            .bottom(bottomAnchor,constant: -75)
+            .centerX(centerXAnchor)
+            .width(UIElementSizes.buttonWidth)
+            .height(UIElementSizes.buttonHeight)
+            .build()
     }
     
 }
