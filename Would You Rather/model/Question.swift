@@ -10,12 +10,14 @@ import Foundation
 
 class Question {
     
+    let id: Int
     let votes1: Double
     let votes2: Double
     let question1: String
     let question2: String
     
-    init(dictionary: [String: Any]) {
+    init(id: Int, dictionary: [String: Any]) {
+        self.id = id
         self.votes1 = dictionary["1"] as? Double ?? 0.0
         self.votes2 = dictionary["2"] as? Double ?? 0.0
         self.question1 = (dictionary["questions"] as? [String] ?? [String]())[0]

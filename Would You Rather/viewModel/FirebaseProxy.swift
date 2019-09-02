@@ -16,10 +16,17 @@ struct FirebaseProxy {
         //get next question
         db.collection("Test").document("\(id)").getDocument { (doc, err) in
             if let doc = doc, doc.exists {
-                let question = Question(dictionary: doc.data()!) //banged because if the document was invalid the guard wouldve caught it
+                let question = Question(id: id, dictionary: doc.data()!) //banged because if the document was invalid the guard wouldve caught it
                 completion(question)
             }
         }
+    }
+    
+    static func vote(forQuestion question: Question?, option: Int ) {
+        guard let question = question else {return}
+        
+        db.collection("Test").document("\(question.id)")
+            .updateData(["\(option + 1)": FieldValue.increment(1.0)])  // +1 for index 0
     }
     
     static func getPool(fromPacks chosenPacks: [String],completion: @escaping ([Int]) -> Void) {
