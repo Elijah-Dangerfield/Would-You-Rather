@@ -1,10 +1,8 @@
-//
 //  StartScreen.swift
 //  Would You Rather
 //
 //  Created by eli dangerfield on 5/1/19.
 //  Copyright © 2019 eli dangerfield. All rights reserved.
-//
 import UIKit
 
 class StartController: UIViewController {
@@ -14,15 +12,12 @@ class StartController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpNavBar()
         options = [startView.option1,startView.option2,startView.option3]
         setupView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        options.forEach { btn in btn.uncheck()}
-    }
+    override func viewWillAppear(_ animated: Bool) {options.forEach { btn in btn.uncheck()}}
     
     fileprivate func setUpNavBar() {
         self.navigationController!.navigationBar.tintColor = .white
@@ -40,15 +35,13 @@ class StartController: UIViewController {
         let chosenPacks = options.filter { $0.isChecked}.map {$0.currentTitle!.lowercased()}
         
         if(!Reachability.isConnectedToNetwork()) {
-            showSimpleAlert(withTitle: "No Internet Connection",
-                            message: "Please check your connection and try again")
+            showSimpleAlert(withTitle: "No Internet Connection",message: "Please check your connection and try again")
             startView.startButton.isUserInteractionEnabled = true
             return
         }
         
         if(chosenPacks.isEmpty) {
-            showSimpleAlert(withTitle: "No Selected Packs",
-                            message: "Please chose a pack")
+            showSimpleAlert(withTitle: "No Selected Packs",message: "Please chose a pack")
             startView.startButton.isUserInteractionEnabled = true
             return
         }

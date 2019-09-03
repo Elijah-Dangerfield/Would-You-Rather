@@ -1,11 +1,9 @@
-//
 //  ViewController.swift
 //  Would You Rather
 //
 //  Created by eli dangerfield on 4/29/19.
 //  Copyright © 2019 eli dangerfield. All rights reserved.
 //
-
 import UIKit
 import AVFoundation
 
@@ -71,7 +69,6 @@ class QuestionsController: UIViewController {
         self.questionsView.option2.setTitle(viewModel.currentQuestion?.question2, for: .normal)
         options.forEach {$0.animateSlide(inView: questionsView)}
         print("question id: \(String(describing: viewModel.currentQuestion?.id))")
-
     }
     
     func getNextQuestion() {

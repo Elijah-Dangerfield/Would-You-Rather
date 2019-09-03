@@ -154,7 +154,7 @@ class QuestionsView: UIView{
         
         option1
             .bottom(orLabel.topAnchor,constant: -25)
-            .top(containerView.topAnchor)
+            .top(containerView.topAnchor, constant: 25)
             .leading(containerView.leadingAnchor)
             .trailing(containerView.trailingAnchor)
             .build()
@@ -175,7 +175,7 @@ class QuestionsView: UIView{
             .build()
         
         firstPercentage
-            .top(option1.bottomAnchor,constant: 5)
+            .bottom(option1.topAnchor,constant: 5)
             .trailing(containerView.trailingAnchor,constant: -5)
             .build()
         
