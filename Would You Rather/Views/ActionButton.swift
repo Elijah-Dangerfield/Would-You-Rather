@@ -12,19 +12,16 @@ class ActionButton: UIButton {
     
     var onClickListener: ACTION = nil
 
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupButton()
     }
     
-
     override func layoutSubviews() {
         super.layoutSubviews()
         //have to set this here as the height is not known until this callback

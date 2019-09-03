@@ -5,8 +5,6 @@
 //  Created by eli dangerfield on 5/30/19.
 //  Copyright © 2019 eli dangerfield. All rights reserved.
 //
-
-import Foundation
 import UIKit
 
 class QuestionsView: UIView{
@@ -208,5 +206,4 @@ class QuestionsView: UIView{
             .leading(secondPerson.trailingAnchor,constant: 10)
             .build()
     }
-    
 }

@@ -18,7 +18,6 @@ class DisplayButton: UIButton {
         setupButton()
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupButton()
@@ -52,7 +51,6 @@ class DisplayButton: UIButton {
     private func setupButton() {
         addTarget(self, action: #selector(toggle(sender:)), for: .touchUpInside)
         addTarget(self, action: #selector(handleAction), for: .touchUpInside)
-
         layer.borderColor = Colors.accentColor.cgColor
         layer.backgroundColor = Colors.mainBlue.cgColor
         isExclusiveTouch = true
