@@ -5,11 +5,7 @@
 //  Created by eli dangerfield on 5/1/19.
 //  Copyright © 2019 eli dangerfield. All rights reserved.
 //
-
-import Foundation
 import UIKit
-import FirebaseFirestore
-import Firebase
 
 class StartController: UIViewController {
     
@@ -65,7 +61,6 @@ class StartController: UIViewController {
             self.navigationController?.pushViewController(questionsVC, animated: false)
             self.startView.startButton.isUserInteractionEnabled = true
         }
-       
     }
 }
 

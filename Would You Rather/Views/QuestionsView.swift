@@ -17,7 +17,6 @@ class QuestionsView: UIView{
         label.text = "Would You Rather"
         label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -27,7 +26,6 @@ class QuestionsView: UIView{
         label.text = "OR"
         label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -36,7 +34,14 @@ class QuestionsView: UIView{
         let label = UILabel()
         label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
         label.font = UIFont(name: "HelveticaNeue", size: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var firstCount: UILabel = {
+        
+        let label = UILabel()
+        label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
+        label.font = UIFont(name: "HelveticaNeue", size: 18)
         return label
     }()
     
@@ -45,8 +50,31 @@ class QuestionsView: UIView{
         let label = UILabel()
         label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
         label.font = UIFont(name: "HelveticaNeue", size: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    var secondCount: UILabel = {
+        
+        let label = UILabel()
+        label.textColor = UIColor().HexToColor(hexString: "#FFFFFF", alpha: 1)
+        label.font = UIFont(name: "HelveticaNeue", size: 18)
+        return label
+    }()
+    
+    var firstPerson: UIImageView = {
+        
+        let image = UIImageView()
+        image.isHidden = true
+        image.image = UIImage(named: "ic_person")
+        return image
+    }()
+    
+    var secondPerson: UIImageView = {
+        
+        let image = UIImageView()
+        image.isHidden = true
+        image.image = UIImage(named: "ic_person")
+        return image
     }()
     
     
@@ -54,7 +82,6 @@ class QuestionsView: UIView{
         
         let button = ActionButton()
         button.setTitle("Next", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -98,7 +125,8 @@ class QuestionsView: UIView{
         backgroundColor = Colors.mainBlue
         
         self.addSubviews([titleLabel,containerView,nextButton])
-        containerView.addSubviews([orLabel,option1,option2,firstPercentage,secondPercentage])
+        containerView.addSubviews([orLabel,option1,option2,firstPercentage,
+                                   secondPercentage,firstCount,secondCount,firstPerson, secondPerson])
         setConstraints()
         
     }
@@ -150,11 +178,35 @@ class QuestionsView: UIView{
             .top(option1.bottomAnchor,constant: 5)
             .trailing(containerView.trailingAnchor,constant: -5)
             .build()
+        
+        firstPerson
+            .top(firstCount.topAnchor)
+            .bottom(firstCount.bottomAnchor)
+            .trailing(firstCount.leadingAnchor,constant: -10)
+            .build()
+        
+        firstCount
+            .top(firstPercentage.topAnchor)
+            .bottom(firstPercentage.bottomAnchor)
+            .trailing(firstPercentage.leadingAnchor,constant: -25)
+            .build()
        
         secondPercentage
             .bottom(option2.topAnchor,constant: -5)
             .leading(containerView.leadingAnchor, constant: 5)
-    
+            .build()
+        
+        secondPerson
+            .top(secondPercentage.topAnchor)
+            .bottom(secondPercentage.bottomAnchor)
+            .leading(secondPercentage.trailingAnchor,constant: 25)
+            .build()
+        
+        secondCount
+            .top(secondPercentage.topAnchor)
+            .bottom(secondPercentage.bottomAnchor)
+            .leading(secondPerson.trailingAnchor,constant: 10)
+            .build()
     }
     
 }

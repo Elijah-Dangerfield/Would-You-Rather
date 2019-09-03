@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import FirebaseFirestore
-import Firebase
 import AVFoundation
+
 class QuestionsController: UIViewController {
     
     var questionsView = QuestionsView()
@@ -53,6 +52,10 @@ class QuestionsController: UIViewController {
         
         questionsView.firstPercentage.text = "\(((votes1/total) * 100).rounded().toInt()!)%"
         questionsView.secondPercentage.text = "\(((votes2/total) * 100).rounded().toInt()!)%"
+        questionsView.firstCount.text = "\(votes1.toInt()!)"
+        questionsView.secondCount.text = "\(votes2.toInt()!)"
+        questionsView.firstPerson.isHidden = false
+        questionsView.secondPerson.isHidden = false
     }
     
     func playAudioSound() {
@@ -74,6 +77,11 @@ class QuestionsController: UIViewController {
     func getNextQuestion() {
         questionsView.firstPercentage.text = ""
         questionsView.secondPercentage.text = ""
+        questionsView.firstCount.text = ""
+        questionsView.secondCount.text = ""
+        questionsView.firstPerson.isHidden = true
+        questionsView.secondPerson.isHidden = true
+
         viewModel.getQuestion(
             whenEmpty: {showSimpleAlert(withTitle: "Out of Questions",
                         message: "There are no more questions for the selected packs :( BUT more will be coming soon :)")},
